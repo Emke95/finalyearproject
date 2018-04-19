@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="userDao" class="com.emma.network.dao.UserDao"></bean>
+	<bean id="postsDao" class="com.emma.network.dao.PostsDao"></bean>
+	<bean id="friendsDao" class="com.emma.network.dao.FriendsDao"></bean>
+	<bean id="inboxDao" class="com.emma.network.dao.InboxDao"></bean>
+	<bean id="notificationDao" class="com.emma.network.dao.NotificationDao"></bean>
+	<bean id="photoDao" class="com.emma.network.dao.PhotoDao"></bean>
+</beans>
