@@ -125,6 +125,7 @@ public class InboxDao extends DAO {
 		Query q = getSession().createQuery("from Inbox where (toUser = :userid and fromUser = :personid) or (toUser = :personid and fromUser = :userid) order by dateOfMessage");
 		q.setInteger("userid", user.getuId());
 		q.setInteger("personid", personId);
+		@SuppressWarnings("unchecked")
 		ArrayList<Inbox> messages = (ArrayList<Inbox>) q.list();
 		
 		return messages;

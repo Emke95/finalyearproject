@@ -66,6 +66,16 @@ public class PostController {
 		int likes = postDao.addLikes(postId, user);
 		return String.valueOf(likes);
 	}
+	
+	@RequestMapping(value = "/unLike", method = RequestMethod.GET, produces = "application/text")
+	public @ResponseBody String unLike(@RequestParam("id") String id, HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		UserAccount user = (UserAccount) session.getAttribute("user");
+		int postId = Integer.parseInt(id);
+		int likes = postDao.unLikes(postId, user);
+		return String.valueOf(likes);
+	}
 
 	@RequestMapping(value = "/addComment", method = RequestMethod.GET, produces = "application/text")
 	public @ResponseBody String comment(@RequestParam("id") String id, @RequestParam("comment") String comment, HttpServletRequest request)

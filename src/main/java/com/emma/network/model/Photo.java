@@ -34,7 +34,7 @@ public class Photo {
 	
 	@Column(name = "Caption")
 	private String caption;
-	
+
 	@Transient
 	private CommonsMultipartFile pic;
 	
@@ -138,5 +138,4 @@ public class Photo {
 		this.caption = caption;
 	}
 
-	
 }

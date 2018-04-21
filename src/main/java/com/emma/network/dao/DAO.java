@@ -4,6 +4,8 @@ package com.emma.network.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
+import com.emma.network.model.Photo;
+
 
 public abstract class DAO {
     
@@ -37,5 +39,7 @@ public abstract class DAO {
 	public  void close() {
 		getSession().close();
 	}
+
+
 
 }

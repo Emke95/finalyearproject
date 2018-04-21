@@ -65,7 +65,9 @@ public class PostsDao extends DAO {
 	                      "<a href='profile.html'><img src='" + post.getPerson().getProfilePicPath() + "' width=40px class='img-circle pull-left' />" +
 	                      "<h4>&nbsp; " + post.getPerson().getFirstName() + " " + post.getPerson().getLastName() +"</a></h4><br/>" +
 	                      "<p>" + post.getStatus() + "</p>" +
-	                      "<p><button class='submitLink addLike'><i class='fa fa-thumbs-up'></i> Like</button><span class='like'>" + post.getLikes() + "</span></p>" +
+	                      "<p><button class='submitLink addLike'><i class='fa fa-thumbs-up'></i> Like</button><span class='like'><button class=\"submitLink unLike\">\r\n" + 
+	                      "											<i class=\"fa fa-thumbs-down\"></i> unlike\r\n" + 
+	                      "										</button>" + post.getLikes() + "</span></p>" +
 	                    "<div class='postEnd commentSection'>" +
 	                      comments +
 	                    "</div>" + 
@@ -84,6 +86,7 @@ public class PostsDao extends DAO {
 	{
 		Query q = getSession().createQuery("from Posts where personid = :personId");
 		q.setInteger("personId", personId);
+		@SuppressWarnings("unchecked")
 		ArrayList<Posts> postList = (ArrayList<Posts>) q.list();
 		
 		return postList;
@@ -139,6 +142,32 @@ public class PostsDao extends DAO {
 		
 		return likes;
 	}
+	
+	public int unLikes(int postId, UserAccount user) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Query query = session.createQuery("from Posts where postid = :postId");
+		query.setInteger("postId", postId);
+		Posts post = (Posts) query.uniqueResult();
+		int likes = post.getLikes() -1;
+		try
+		{
+			Transaction transaction = session.beginTransaction();
+			post.setLikes(likes);
+			session.update(post);
+			transaction.commit();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			session.close();
+		}
+		
+		return likes;
+	}
+
 	
 	public String addComments(int postId, String comment, UserAccount user)
 	{
@@ -209,5 +238,6 @@ public class PostsDao extends DAO {
 		}
 		
 	}
+
 
 }

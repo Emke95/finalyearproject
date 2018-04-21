@@ -31,114 +31,106 @@
                                     }
                                 });
     marker1 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
+        position:new google.maps.LatLng(53.37334444444444, -6.241044444444444),
+        map:map,
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\imgsnow.jpg"});
+                                google.maps.event.addListener(marker1, 'mouseover', function() {
+                                    marker1.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\user_images\\imgsnow.jpg',
+                                        scaledSize: new google.maps.Size(150, 200),
+                                    });
+                                });google.maps.event.addListener(marker1, 'mouseout', function(){
+                                    marker1.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
+                                });
+    marker2 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
         position:new google.maps.LatLng(53.374008333333336, -6.165097222222222),
         map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG"});
-                                google.maps.event.addListener(marker1, 'hover', function() {
-                                    marker1.setIcon({
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG"});
+                                google.maps.event.addListener(marker2, 'mouseover', function() {
+                                    marker2.setIcon({
                                         url: 'resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG',
                                         scaledSize: new google.maps.Size(150, 200),
                                     });
-                                });
-    marker2 = new google.maps.Marker({
-        position:new google.maps.LatLng(52.96801111111111, -9.431155555555556),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG"});
-                                google.maps.event.addListener(marker2, 'hover', function() {
+                                });google.maps.event.addListener(marker2, 'mouseout', function(){
                                     marker2.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
                                 });
     marker3 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
         position:new google.maps.LatLng(52.84419166666667, -8.982477777777778),
         map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG"});
-                                google.maps.event.addListener(marker3, 'hover', function() {
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG"});
+                                google.maps.event.addListener(marker3, 'mouseover', function() {
                                     marker3.setIcon({
                                         url: 'resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG',
                                         scaledSize: new google.maps.Size(150, 200),
                                     });
+                                });google.maps.event.addListener(marker3, 'mouseout', function(){
+                                    marker3.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
                                 });
     marker4 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
         position:new google.maps.LatLng(52.12455, -10.460241666666667),
         map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6845.JPG"});
-                                google.maps.event.addListener(marker4, 'hover', function() {
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6845.JPG"});
+                                google.maps.event.addListener(marker4, 'mouseover', function() {
                                     marker4.setIcon({
                                         url: 'resources\\assets\\img\\profile\\user_images\\IMG_6845.JPG',
                                         scaledSize: new google.maps.Size(150, 200),
                                     });
+                                });google.maps.event.addListener(marker4, 'mouseout', function(){
+                                    marker4.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
                                 });
     marker5 = new google.maps.Marker({
-        position:new google.maps.LatLng(53.34306388888889, -6.259408333333333),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7179.JPG"});
-                                google.maps.event.addListener(marker5, 'hover', function() {
-                                    marker5.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7179.JPG',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
-                                });
-    marker6 = new google.maps.Marker({
-        position:new google.maps.LatLng(53.347655555555555, -6.320386111111111),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG"});
-                                google.maps.event.addListener(marker6, 'hover', function() {
-                                    marker6.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
-                                });
-    marker7 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
         position:new google.maps.LatLng(53.114025, -6.2634944444444445),
         map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG"});
-                                google.maps.event.addListener(marker7, 'hover', function() {
-                                    marker7.setIcon({
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG"});
+                                google.maps.event.addListener(marker5, 'mouseover', function() {
+                                    marker5.setIcon({
                                         url: 'resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG',
                                         scaledSize: new google.maps.Size(150, 200),
                                     });
+                                });google.maps.event.addListener(marker5, 'mouseout', function(){
+                                    marker5.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
                                 });
-    marker8 = new google.maps.Marker({
-        position:new google.maps.LatLng(51.20882777777778, 3.2241444444444447),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7624.JPG"});
-                                google.maps.event.addListener(marker8, 'hover', function() {
-                                    marker8.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7624.JPG',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
-                                });
-    marker9 = new google.maps.Marker({
-        position:new google.maps.LatLng(53.14610555555556, -6.210616666666667),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_8023.JPG"});
-                                google.maps.event.addListener(marker9, 'hover', function() {
-                                    marker9.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_8023.JPG',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
-                                });
-    marker10 = new google.maps.Marker({
+    marker6 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
         position:new google.maps.LatLng(53.38846111111111, -6.063938888888889),
         map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG"});
-                                google.maps.event.addListener(marker10, 'hover', function() {
-                                    marker10.setIcon({
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG"});
+                                google.maps.event.addListener(marker6, 'mouseover', function() {
+                                    marker6.setIcon({
                                         url: 'resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG',
                                         scaledSize: new google.maps.Size(150, 200),
                                     });
-                                });
-    marker11 = new google.maps.Marker({
-        position:new google.maps.LatLng(53.37334444444444, -6.241044444444444),
-        map:map,
-        title:"C:\\Users\\emma.keyes\\PatternWorkspace\\SocialNetworkTravel\\travelwise-master\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\snow.jpg"});
-                                google.maps.event.addListener(marker11, 'hover', function() {
-                                    marker11.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\snow.jpg',
-                                        scaledSize: new google.maps.Size(150, 200),
-                                    });
+                                });google.maps.event.addListener(marker6, 'mouseout', function(){
+                                    marker6.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
                                 });
 }
 			</script>

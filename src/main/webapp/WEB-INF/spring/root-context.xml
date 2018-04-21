@@ -10,4 +10,5 @@
 	<bean id="inboxDao" class="com.emma.network.dao.InboxDao"></bean>
 	<bean id="notificationDao" class="com.emma.network.dao.NotificationDao"></bean>
 	<bean id="photoDao" class="com.emma.network.dao.PhotoDao"></bean>
+	<bean id="mapDao" class="com.emma.network.dao.MapDao"></bean>
 </beans>

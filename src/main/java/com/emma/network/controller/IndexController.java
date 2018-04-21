@@ -57,8 +57,10 @@ public class IndexController {
 		UserAccount user = (UserAccount) session.getAttribute("user");
 		boolean checkIfFriend = friendDao.checkIfFriend(user, personId);
 		Person person = userDao.getPersonByIds(personId);
+		
 		ArrayList<Posts> postList = postDao.getMyPosts(personId);
 		ArrayList<Photo> photoList = photoDao.getMyPhotos(personId);
+		
 		model.addAttribute("posts", postList);
 		model.addAttribute("photos", photoList);
 		model.addAttribute("person", person);
