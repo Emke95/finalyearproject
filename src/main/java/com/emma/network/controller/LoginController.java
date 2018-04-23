@@ -98,6 +98,14 @@ public class LoginController {
 				session.setAttribute("messageCount", String.valueOf(personList.size()));
 				session.setAttribute("messageList", personList);
 				
+				ArrayList<Integer> friendRequests = friendDao.getFriendRequests(ua);
+
+				session.setAttribute("requestCount", String.valueOf(friendRequests.size()));
+				model.addAttribute("requestCount", String.valueOf(friendRequests.size()));
+				
+				session.setAttribute("requestList", friendRequests);
+				model.addAttribute("requestList", friendRequests);
+				
 				return "index";
 			}
 		} catch (Exception e) {

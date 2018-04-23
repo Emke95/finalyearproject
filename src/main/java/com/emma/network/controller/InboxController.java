@@ -44,8 +44,12 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	{
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
+		
 		ArrayList<Integer> personIds = inboxDao.getAllMessageList(user);
 		ArrayList<Person> personList = userDao.getPersonByIds(personIds);
+		
+		session.setAttribute("personCount", String.valueOf(personList.size()));
+		model.addAttribute("personCount", String.valueOf(personList.size()));
 		model.addAttribute("personList", personList);
 		
 		return "inbox";

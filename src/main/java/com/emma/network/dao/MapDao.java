@@ -82,7 +82,8 @@ public class MapDao extends DAO {
 				"            </head>\r\n" + 
 				"\r\n" + 
 				"            <body>\r\n" + 
-				"                <section id=\"container\">\r\n" + 
+				"                <section id=\"container\">\r\n" +
+				"<a href=\"/TravelBug/index\" class=\"logo\"><b><font color=\"FF00CC\">TW</font></b></a>"+
 				"                    <input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\">\r\n" + 
 				"                    <div id=\"map\">\r\n" + 
 				"                        <script>\r\n" + 
@@ -104,7 +105,7 @@ public class MapDao extends DAO {
 				"\r\n" + 
 				"                                var input = document.getElementById('pac-input');\r\n" + 
 				"                                var searchBox = new google.maps.places.SearchBox(input);\r\n" + 
-				"                                map.controls[google.maps.ControlPosition.LEFT_CENTER].push(input);\r\n" + 
+				"                                map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);\r\n" + 
 				"\r\n" + 
 				"                                map.addListener('bounds_changed', function() {\r\n" + 
 				"                                    searchBox.setBounds(map.getBounds());\r\n" + 
@@ -163,9 +164,10 @@ public class MapDao extends DAO {
 		int countM=0;
 		int countL=0;
 		int countN=0;
+		int countC=0;
 		for (PhotoLocation photoLocation : photoLocations)
 		{
-			count++; countL++; countM++; countN++;
+			count++; countL++; countM++; countN++; countC++;
 			final String fullPath = photoLocation.file.getAbsoluteFile().toString().trim().replace("\\", "\\\\");
 			final String imageName = photoLocation.file.getName();
 
@@ -176,7 +178,11 @@ public class MapDao extends DAO {
 			ps.println("        position:new google.maps.LatLng(" + photoLocation.location + "),");
 			ps.println("        map:map,");
 			ps.println("        title:\"" + fullPath + "\"});");
-			ps.println("                                google.maps.event.addListener(marker"+countM +", 'mouseover', function() {\r\n" + 
+			ps.println("		    google.maps.event.addListener(marker"+countC+", 'click', function() {\r\n" + 
+					"			var winPop = window.open(this.href=\'photo?picPath=resources/assets/img/profile/user_images/"+imageName+"');\r\n" + 
+					"			return false;\r\n" + 
+					"		    });"
+					+ "                                google.maps.event.addListener(marker"+countM +", 'mouseover', function() {\r\n" + 
 					"                                    marker"+countL +".setIcon({\r\n" + 
 					"                                        url: 'resources\\\\assets\\\\img\\\\profile\\\\user_images\\\\"+imageName+"',\r\n" + 
 					"                                        scaledSize: new google.maps.Size(150, 150),\r\n" + 

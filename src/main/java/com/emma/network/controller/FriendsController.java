@@ -59,6 +59,15 @@ public class FriendsController {
 		session.setAttribute("messageList", personList1);
 		model.addAttribute("messageList", personList1);
 		
+		ArrayList<Integer> friendRequests = friendDao.getFriendRequests(user);
+
+		session.setAttribute("requestCount", String.valueOf(friendRequests.size()));
+		model.addAttribute("requestCount", String.valueOf(friendRequests.size()));
+		
+		session.setAttribute("requestList", friendRequests);
+		model.addAttribute("requestList", friendRequests);
+		
+		
 		if(friendIds.size() > 0)
 		{
 			ArrayList<Person> personList = userDao.getPersonByIds(friendIds);
@@ -72,7 +81,14 @@ public class FriendsController {
 	{
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
+		
 		ArrayList<Integer> friendRequests = friendDao.getFriendRequests(user); 
+		
+		session.setAttribute("requestCount", String.valueOf(friendRequests.size()));
+		model.addAttribute("requestCount", String.valueOf(friendRequests.size()));
+		session.setAttribute("requestList", friendRequests);
+		model.addAttribute("requestList", friendRequests);
+		
 		if(friendRequests.size() > 0)
 		{
 			ArrayList<Person> personList = userDao.getPersonByIds(friendRequests);
@@ -93,6 +109,14 @@ public class FriendsController {
 		model.addAttribute("notificationCount",notificationList.size());
 		session.setAttribute("notificationList", notificationList);				
 		model.addAttribute("notificationList",notificationList);
+		
+		ArrayList<Integer> friendRequests = friendDao.getFriendRequests(user);
+
+		session.setAttribute("requestCount", String.valueOf(friendRequests.size()));
+		model.addAttribute("requestCount", String.valueOf(friendRequests.size()));
+		
+		session.setAttribute("requestList", friendRequests);
+		model.addAttribute("requestList", friendRequests);
 		
 		ArrayList<Integer> personIds = inboxDao.getUnreadMessages(user);
 		ArrayList<Person> personList1 = userDao.getPersonByIds(personIds);
@@ -126,7 +150,7 @@ public class FriendsController {
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
 		friendDao.acceptRequest(user, Integer.parseInt(personId));
-		return "redirect:/index";
+		return "redirect:/friendRequests";
 	}
 	
 	@RequestMapping(value = "/unFriend", method = RequestMethod.POST)

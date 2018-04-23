@@ -94,7 +94,7 @@ public class PhotoController {
 				
 				String fName = check + "images" + dir + check + fileName;
 				photo.setFileName(fName);
-				photo.setPicPath("resources/assets/img/profile/" + photo.getPic().getOriginalFilename());	
+				photo.setPicPath("resources/assets/img/profile/user_images/" + photo.getPic().getOriginalFilename());	
 				System.out.println("File is stored at" + localFile.getPath());
 				photo.setPerson(u.getPerson());
 				photo.setUploadDate(new Date());
@@ -131,16 +131,32 @@ public class PhotoController {
 		return String.valueOf(likes);
 	}
 
+//	@RequestMapping(value = "/photo", method = RequestMethod.GET)
+//	public String getPost(Model model, @RequestParam("photoId") String photoId, HttpServletRequest request)
+//	{
+//		HttpSession session = request.getSession();
+//		UserAccount user = (UserAccount) session.getAttribute("user");
+//		Photo photo = photoDao.getPhoto(user, Integer.parseInt(photoId));
+//		
+//		ArrayList<Notification> notificationList = notificationDao.getUnseenNotifications(user);
+//		session.setAttribute("notificationCount", String.valueOf(notificationList.size()));
+//		session.setAttribute("notificationList", notificationList);
+//
+//		model.addAttribute("photo", photo);
+//
+//		return "photo";
+//	}
+	
 	@RequestMapping(value = "/photo", method = RequestMethod.GET)
-	public String getPost(Model model, @RequestParam("photoId") String photoId, HttpServletRequest request)
+	public String getPost(Model model, @RequestParam("picPath") String picPath, HttpServletRequest request)
 	{
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
-		Photo photo = photoDao.getPhoto(user, Integer.parseInt(photoId));
+		Photo photo = photoDao.getPhotoPath(user, picPath);
 		
-		ArrayList<Notification> notificationList = notificationDao.getUnseenNotifications(user);
-		session.setAttribute("notificationCount", String.valueOf(notificationList.size()));
-		session.setAttribute("notificationList", notificationList);
+		ArrayList<Notification> picNotificationList = notificationDao.getUnseenNotifications(user);
+		session.setAttribute("notificationCount", String.valueOf(picNotificationList.size()));
+		session.setAttribute("picNotificationList", picNotificationList);
 
 		model.addAttribute("photo", photo);
 

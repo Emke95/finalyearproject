@@ -148,4 +148,16 @@ public class FriendsDao extends DAO {
 		
 		return false;
 	}
+	
+	public boolean checkIfNotFriend(UserAccount user, int personId)
+	{
+		ArrayList<Integer> friendIds = getAllFriends(user);
+		for(int f : friendIds)
+		{
+			if(personId == f)
+				return false;
+		}
+		
+		return true;
+	}
 }

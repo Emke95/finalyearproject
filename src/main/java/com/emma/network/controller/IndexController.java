@@ -56,6 +56,7 @@ public class IndexController {
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
 		boolean checkIfFriend = friendDao.checkIfFriend(user, personId);
+		boolean checkIfNotFriend = friendDao.checkIfNotFriend(user, personId);
 		Person person = userDao.getPersonByIds(personId);
 		
 		ArrayList<Posts> postList = postDao.getMyPosts(personId);
@@ -63,7 +64,8 @@ public class IndexController {
 		
 		model.addAttribute("posts", postList);
 		model.addAttribute("photos", photoList);
-		model.addAttribute("person", person);
+		model.addAttribute("person", person);		
+		model.addAttribute("checkIfNotFriend", checkIfNotFriend);
 		model.addAttribute("checkIfFriend", checkIfFriend);
 		return "profile";
 	}

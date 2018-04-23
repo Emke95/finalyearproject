@@ -56,15 +56,22 @@ public class PhotoDao extends DAO {
 		Photo photo = (Photo) q.uniqueResult();
 		return photo;
 	} 
+	
+	public Photo getPhotoPath(UserAccount user, String picPath){
+		Query q= getSession().createQuery("from Photo where picPath = :picPath");
+		q.setString("picPath", picPath);
+		Photo photo = (Photo) q.uniqueResult();
+		return photo;
+	} 
 
 	public ArrayList<Photo> getFriendPhotos(UserAccount user, ArrayList<Integer> friendList)
 	{
 		friendList.add(user.getuId());
-		Query query = getSession().createQuery("from Photo where personid in (:personid) order by uploaddate desc").setMaxResults(2);
+		Query query = getSession().createQuery("from Photo where personid in (:personid) order by uploaddate desc").setMaxResults(200);
 		query.setParameterList("personid", friendList);
 		@SuppressWarnings("unchecked")
 		ArrayList<Photo> photoList = (ArrayList<Photo>) query.list();
-		counter = 2;
+		counter = 200;
 		friends = friendList;
 		return photoList;
 	}
