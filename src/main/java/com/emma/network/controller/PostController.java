@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,18 +16,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.emma.network.dao.FriendsDao;
 import com.emma.network.dao.NotificationDao;
 import com.emma.network.dao.PostsDao;
-import com.emma.network.dao.UserDao;
 import com.emma.network.model.Notification;
 import com.emma.network.model.Posts;
 import com.emma.network.model.UserAccount;
 
 @Controller
 public class PostController {
-
-	private static final Logger logger = LoggerFactory.getLogger(PostController.class);
-
-	@Autowired
-	private UserDao userDao;
 
 	@Autowired
 	private PostsDao postDao;

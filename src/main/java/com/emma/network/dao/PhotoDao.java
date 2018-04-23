@@ -168,8 +168,10 @@ public class PhotoDao extends DAO {
 		query.setInteger("photoId", photoId);
 		Photo photo =(Photo) query.uniqueResult();
 		int likes = photo.getLikes() - 1;
+		if (photo.getLikes() < 0) {
 		try {
 			Transaction transaction = session.beginTransaction();
+		
 			photo.setLikes(likes);
 			session.update(photo);
 			transaction.commit();
@@ -182,6 +184,10 @@ public class PhotoDao extends DAO {
 		{
 			session.close();
 		}
+		}
+		else
+			System.out.println("photo has no likes");
+		
 		return likes;
 	}
 

@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.emma.network.model.Friends;
 import com.emma.network.model.Person;
@@ -92,11 +93,13 @@ public class UserDao extends DAO {
 		{	
 			Transaction transaction = session.beginTransaction();
 
+			CommonsMultipartFile profilePic = (user.getPerson().getProfilePic()); 
 			String username = StringEscapeUtils.escapeHtml(user.getUsername());
 			String firstName = StringEscapeUtils.escapeHtml(user.getPerson().getFirstName());
 			String lastName = StringEscapeUtils.escapeHtml(user.getPerson().getLastName());
 			String email = StringEscapeUtils.escapeHtml(user.getPerson().getEmail());
 
+			user.getPerson().setProfilePic(profilePic);
 			user.setUsername(username);
 			user.getPerson().setFirstName(firstName);
 			user.getPerson().setLastName(lastName);

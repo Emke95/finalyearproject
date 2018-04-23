@@ -19,7 +19,7 @@ body {
 background-color: transparent;
 text-decoration: none;
 border: none;
-color: blue;
+color: #4c4c4c;
 cursor: pointer;
 }
 
@@ -992,4 +992,20 @@ label {
 
 .site-min-height {
     min-height: 900px;
+}
+.pic-box {
+	width: 400px;
+	height: 400px;
+	margin-right: 10px;
+	margin-left: 25px;
+	margin-right: 13px;
+	margin-bottom: 50px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	border: 4px solid #9D8379;
+	background-color: transparent;
+	-webkit-box-shadow: #967860 8px 8px 8px;
+	-moz-box-shadow: #967860 8px 8px 8px;
+	box-shadow: #967860 8px 8px 8px;
 }

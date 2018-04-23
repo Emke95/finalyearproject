@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,8 +21,10 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import com.drew.imaging.ImageProcessingException;
 import com.emma.network.dao.FriendsDao;
 import com.emma.network.dao.MapDao;
+import com.emma.network.dao.NotificationDao;
 import com.emma.network.dao.PhotoDao;
 import com.emma.network.dao.UserDao;
+import com.emma.network.model.Notification;
 import com.emma.network.model.Photo;
 import com.emma.network.model.UserAccount;
 
@@ -31,11 +32,9 @@ import com.emma.network.model.UserAccount;
 public class PhotoController {
 
 	@Autowired
-	@Qualifier("photoDao")
 	PhotoDao photoDao;
 
 	@Autowired
-	@Qualifier("userDao")
 	UserDao userDao;
 
 	@Autowired
@@ -44,15 +43,19 @@ public class PhotoController {
 	@Autowired
 	private FriendsDao friendDao;
 	
-		@RequestMapping(value = "/testmap", method = RequestMethod.GET)
-		public String testmap() {
-			try {
-				mapDao.addToMap();
-			} catch (ImageProcessingException | IOException e) {
-				e.printStackTrace();
-			}
-			return "redirect:/index";
+
+	@Autowired
+	private NotificationDao notificationDao;
+
+	@RequestMapping(value = "/testmap", method = RequestMethod.GET)
+	public String testmap() {
+		try {
+			mapDao.addToMap();
+		} catch (ImageProcessingException | IOException e) {
+			e.printStackTrace();
 		}
+		return "redirect:/index";
+	}
 
 	@RequestMapping(value = "/photo/upload", method = RequestMethod.GET)
 	public String showForm(ModelMap model) {
@@ -68,39 +71,27 @@ public class PhotoController {
 			HttpSession session = (HttpSession) request.getSession();
 			UserAccount u = (UserAccount) session.getAttribute("user");
 			String check = File.separator;
-			String dir1 = check + "user_images";
-			String dir = check + "user_images" + u.getPerson().getpId();
-			File directory, directory1;
+			String dir = check + "user_images";
+			File directory;
 
-			String path1 = "C:/Users/emma.keyes/eclipse-workspace/FinalYearProject/src/main/webapp/resources/assets/img/profile";
 			String path = "C:/Users/emma.keyes/eclipse-workspace/FinalYearProject/src/main/webapp/resources/assets/img/profile";
-			path += dir1;
 			path += dir;
-			path1 +=dir1;
 
-			directory1 = new File(path1);
 			directory = new File(path);
 
-			boolean temp1 = directory1.exists();
 			boolean temp = directory.exists();
 			if (!temp) {
 				temp = directory.mkdir();
 			}
-			else if(!temp1) {
-				temp1 = directory1.mkdir();	
-			}
 			if (temp) {
 				CommonsMultipartFile photoInMemory = photo.getPic();
-				//CommonsMultipartFile publicPhoto = photo.getPic2();
-
+				
 				String fileName = photoInMemory.getOriginalFilename();
 
-				File publicFile = new File(directory1.getPath(), fileName);
-				File localFile = new File(directory.getPath(), fileName);
+					File localFile = new File(directory.getPath(), fileName);
 
 				photoInMemory.transferTo(localFile);
-				//publicPhoto.transferTo(publicFile);
-
+				
 				String fName = check + "images" + dir + check + fileName;
 				photo.setFileName(fName);
 				photo.setPicPath("resources/assets/img/profile/" + photo.getPic().getOriginalFilename());	
@@ -140,6 +131,23 @@ public class PhotoController {
 		return String.valueOf(likes);
 	}
 
+	@RequestMapping(value = "/photo", method = RequestMethod.GET)
+	public String getPost(Model model, @RequestParam("photoId") String photoId, HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		UserAccount user = (UserAccount) session.getAttribute("user");
+		Photo photo = photoDao.getPhoto(user, Integer.parseInt(photoId));
+		
+		ArrayList<Notification> notificationList = notificationDao.getUnseenNotifications(user);
+		session.setAttribute("notificationCount", String.valueOf(notificationList.size()));
+		session.setAttribute("notificationList", notificationList);
+
+		model.addAttribute("photo", photo);
+
+		return "photo";
+	}
+
+
 	@RequestMapping(value="/unLikePhoto", method = RequestMethod.GET, produces = "application/text")
 	public @ResponseBody String unLike(@RequestParam("id") String id,HttpServletRequest request)	
 	{
@@ -149,6 +157,7 @@ public class PhotoController {
 		int likes = photoDao.unLikePhoto(photoId, user);
 		return String.valueOf(likes);
 	}
+	
 	@RequestMapping(value = "/addPhotoComment", method = RequestMethod.GET, produces = "application/text")
 	public @ResponseBody String comment(@RequestParam("id") String id, @RequestParam("comment") String comment, HttpServletRequest request)
 	{
