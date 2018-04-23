@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+       
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
         <html lang="en">
 
@@ -202,113 +204,88 @@
                                         </div>
                                     </div>
                                     <!-- col-lg-4 -->
-                                    <div id="divSave" style="margin-top: 0px;" class="col-lg-7 form-panel">
-                                        <c:if test="${sessionScope.user.getuId() == person.getpId()}">
-                                            <a class="pull-right" id="edit" href="#">Edit</a>
-                                        </c:if>
-                                        <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12 desc">
-                                            <h3>
-                                                <i class="fa fa-angle-right"></i> ${person.getFirstName()} ${person.getLastName()}
-                                            </h3>
-                                            <h4>
-                                                <i class="fa fa-male"></i> ${person.getGender()}
-                                            </h4>
-                                            <h4>
-                                                <i class="fa fa-birthday-cake"></i> ${person.getDobString()}
-                                            </h4>
-                                            <h4>
-                                                <i class="fa fa-envelope-o"></i> ${person.getEmail()}
-                                            </h4>
-                                        </div>
-                                        <!-- /col-md-4 -->
-                                    </div>
-                                    <!-- col-lg-7-->
-                                    <div id="divEdit" style="margin-top: 0px;" class="col-lg-7 form-panel">
-                                        <form:form class="form-inline" method="POST" commandName="userAccount" action="editDetails">
-                                            <button type="submit" class="pull-right submitLink" id="save">Save</button>
-                                            <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12 desc">
-                                                <input type='hidden' name="pId" value="${person.getpId()}" />
-                                                <p>
-                                                    <input type="text" required name="firstName" value="${person.getFirstName()}" placeholder="First Name" autocomplete="off" class="form-control placeholder-no-fix">
-                                                    <p>
-                                                        <input type="text" required name="lastName" value="${person.getLastName()}" placeholder="Last Name" autocomplete="off" class="form-control placeholder-no-fix">
-                                                    </p>
-                                                    <p>
-                                                        <input type="text" required name="username" value="${sessionScope.user.getUsername()}" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix">
-                                                        <h4>
-                                                            <i style="color: green;" class="fa fa-check"></i><i style="color: red;" class="fa fa-times"></i>
-                                                        </h4>
-                                                    </p>
-                                                    <p>
-                                                        <input type="text" required id="email" onblur="validateEmail();" name="email" value="${person.getEmail()}" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
-                                                    </p>
-                                                    <p>
-                                                        <span id="validEmail" class="validEmail"></span>
-                                                    </p>
-                                                    <p>
-                                                        <input type="text" name="dob" placeholder="Date of Birth" value="${person.getDobString()}" autocomplete="off" class="form-control placeholder-no-fix">
-                                                    </p>
-                                                    <c:if test="${person.getGender() == 'Male'}">
-                                                        <p>
-                                                            <input type="radio" checked="checked" name="gender" id="gender" value="Male" class="radio-inline"> Male</input>
-                                                            <input type="radio" name="gender" id="gender" value="Female" class="radio-inline"> Female</input>
-                                                        </p>
-                                                    </c:if>
-                                                    <c:if test="${person.getGender() == 'Female'}">
-                                                        <p>
-                                                            <input type="radio" name="gender" id="gender" value="Male" class="radio-inline"> Male</input> <input type="radio" checked="checked" name="gender" id="gender" value="Female" class="radio-inline"> Female</input>
-                                                        </p>
-                                                    </c:if>
-
-                                            </div>
-                                        </form:form>
-                                    </div>
+                                     <div id="divSave" style="margin-top:0px;" class="col-lg-7 form-panel">
+              <c:if test="${sessionScope.user.getuId() == person.getpId()}">
+                <a class="pull-right" id="edit" href="#">Edit</a>
+              </c:if>
+                <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12 desc">
+                  <h3><i class="fa fa-angle-right"></i> ${person.getFirstName()} ${person.getLastName()}</h3>
+                  <h4><i class="fa fa-male"></i> ${person.getGender()}</h4>
+                  <h4><i class="fa fa-birthday-cake"></i> ${person.getDobString()}</h4>
+                  <h4><i class="fa fa-envelope-o"></i> ${person.getEmail()}</h4>
+                </div><!-- /col-md-4 -->
+              </div><!-- col-lg-7-->
+              <div id="divEdit" style="margin-top:0px;" class="col-lg-7 form-panel">
+              <form:form class="form-inline" method="POST" commandName="userAccount" action="editDetails">
+                <button type="submit" class="pull-right submitLink" id="save">Save</button>
+                <div class="col-lg-7 col-md-4 col-sm-4 col-xs-12 desc">
+                  			  <input type='hidden' name="pId" value="${person.getpId()}" />
+                              <p><input type="text" required name="firstName" value="${person.getFirstName()}" placeholder="First Name" autocomplete="off" class="form-control placeholder-no-fix">
+                              <p><input type="text" required name="lastName" value="${person.getLastName()}" placeholder="Last Name" autocomplete="off" class="form-control placeholder-no-fix"></p>
+                              <p><input type="text" required name="username" value="${sessionScope.user.getUsername()}" placeholder="Username" autocomplete="off" class="form-control placeholder-no-fix"><h4><i style="color:green;" class="fa fa-check"></i><i style="color:red;" class="fa fa-times"></i></h4></p>
+                              <p><input type="text" required id="email" onblur="validateEmail();" name="email" value="${person.getEmail()}" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix"></p>
+                 			<p><span id="validEmail" class="validEmail"></span></p>
+                 			 <p><input type="text" name="dob" placeholder="Date of Birth" value="${person.getDobString()}" autocomplete="off" class="form-control placeholder-no-fix"></p>
+                  			<c:if test="${person.getGender() == 'Male'}">
+                              <p><input type="radio" checked="checked" name="gender" id="gender" value="Male" class="radio-inline"> Male</input>
+                              <input type="radio" name="gender" id="gender" value="Female" class="radio-inline"> Female</input></p>
+                            </c:if>
+                            <c:if test="${person.getGender() == 'Female'}">
+                              <p><input type="radio" name="gender" id="gender" value="Male" class="radio-inline"> Male</input>
+                              <input type="radio" checked="checked" name="gender" id="gender" value="Female" class="radio-inline"> Female</input></p>
+                            </c:if>
+                            
+                          </div>
+                          </form:form>
+                  </div>
 
                                 </div>
                                 <!-- row-mt -->
                                 <c:if test="${sessionScope.user.getuId() == person.getpId()}">
                                     <div class="row mtpost">
-                                        <div class="form-panel">
-                                            <h4>Post</h4>
-                                            <form class="form-horizontal tasi-form" action="addPosts" method="POST" role="form">
-                                                <div class="form-group">
-                                                    <textarea class="form-control form-post" name="status" id="status" placeholder="Write a status"></textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-theme">Share!</button>
-                                            </form>
+                                    <div class="form-panel">                                            <div class="login-wrap">
+                                                <span class="pull-left"> <a data-toggle="modal"
+									href="index.html#postModal"><h4><i class="fa fa-pencil"></i>&nbsp;Post Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4></a>
+								</span>
+                                                <span class="pull-left"> <a data-toggle="modal"
+									href="index.html#photoModal"><h4><i class="fa fa-image"></i>&nbsp;Upload a Photo</h4></a>
+								</span>
+                                            </div>
                                         </div>
                                     </div>
+                                    
                                 </c:if>
                                 <c:if test="${checkIfFriend || sessionScope.user.getuId() == person.getpId()}">
                                     <c:forEach var="post" items="${posts}">
                                         <div class="row mtpost">
                                             <div class="form-panel">
-                                                <a href="profile.html"><img
-											onerror="this.src='resources/assets/img/default.png';"
-											src="${post.getPerson().getProfilePicPath()}" width=40px
-											class="img-circle pull-left" />
-											<h4>&nbsp; ${post.getPerson().getFirstName()}
-												${post.getPerson().getLastName()}</a>
-                                                </h4>
-                                                <br />
-                                                <p>
+                                                <a href="profile?personId=${post.getPerson().getpId()}"> <img
+										onerror="this.src='resources/assets/img/default.png';"
+										src="${post.getPerson().getProfilePicPath()}" width=40px
+										class="img-circle pull-left" />
+										<h4>&nbsp; ${post.getPerson().getFirstName()}
+											${post.getPerson().getLastName()} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${post.getDateOfPost()}" pattern="dd/MM/yyyy" /></h4></a> <br />
+                                                <h4>
                                                     <c:out value="${post.getStatus()}"></c:out>
-                                                </p>
+                                                </h4>
                                                 <p>
                                                     <button class="submitLink addLike">
-												<i class="fa fa-thumbs-up"></i> Like
-											</button>
+											<i class="fa fa-thumbs-up"></i> Like
+										</button>
+                                                    <button class="submitLink unLike">
+											<i class="fa fa-thumbs-down"></i> unlike
+										</button>
                                                     <span class="like">${post.getLikes()}</span>
                                                 </p>
                                                 <hidden class="postId" value="${post.getPostId()}" />
                                                 <div class="postEnd commentSection">
                                                     <c:forEach var="comment" items="${post.getComments()}">
                                                         <a href="profile?personId=${comment.getPerson().getpId()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
-													src="${comment.getPerson().getProfilePicPath()}" width=20px
-													class="img-circle pull-left" />
-													<h5>&nbsp; ${comment.getPerson().getFirstName()}
-														${comment.getPerson().getLastName()}</a>
+												onerror="this.src='resources/assets/img/default.png';"
+												src="${comment.getPerson().getProfilePicPath()}" width=20px
+												class="img-circle pull-left" />
+												<h5>&nbsp; ${comment.getPerson().getFirstName()}
+													${comment.getPerson().getLastName()}</a>
                                                         </h5>
                                                         <p>${comment.getComment()}</p>
                                                     </c:forEach>
@@ -323,38 +300,43 @@
                                         <!-- /row -->
                                     </c:forEach>
 
-                                    <c:forEach var="photo" items="${photos}">
+                                                                        <c:forEach var="photo" items="${photos}">
                                         <div class="row mtpost">
                                             <div class="form-panel">
-                                                <a href="profile?personId=${photo.getPerson().getpId()}">
-											<img onerror="this.src='resources/assets/img/default.png';"
-											src="${photo.getPerson().getProfilePicPath()}" width=40px
-											class="img-circle pull-left" />
-											<h4>&nbsp; ${photo.getPerson().getFirstName()}
-												${photo.getPerson().getLastName()}</h4>
-										</a> <br />
-                                                <p>
-                                                    <c:out value="${photo.getUploadDate()}"></c:out>
-                                                </p>
-                                                <img onerror="this.src='resources/assets/img/default.png';" src="${photo.getPicPath()}" width=250px />
+                                                <a href="profile?personId=${photo.getPerson().getpId()}"> <img
+										onerror="this.src='resources/assets/img/default.png';"
+										src="${photo.getPerson().getProfilePicPath()}" width=40px
+										class="img-circle pull-left" />
+										<h4>&nbsp; ${photo.getPerson().getFirstName()}
+											${photo.getPerson().getLastName()} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<fmt:formatDate value="${photo.getUploadDate()}" pattern="dd/MM/yyyy" />
+									</h4></a> <br/>
+                                                <h4>${photo.getCaption()}</h4>
+
+                                                <div class="pic-box">
+                                                    <img onerror="this.src='resources/assets/img/default.png';" src="${photo.getPicPath()}" width=400px />
+                                                </div>
                                                 <p>
                                                     <button class="submitLink addPhotoLike">
-												<i class="fa fa-thumbs-up"></i> Like
-											</button>
+											<i class="fa fa-thumbs-up"></i> Like
+										</button>
+                                                    <button class="submitLink unLikePhoto">
+											<i class="fa fa-thumbs-down"></i> unlike
+										</button>
                                                     <span class="like">${photo.getLikes()}</span>
                                                 </p>
                                                 <hidden class="photoId" value="${photo.getPhotoId()}" />
                                                 <div class="postEnd commentSection">
                                                     <c:forEach var="comment" items="${photo.getComments()}">
                                                         <a href="profile?personId=${comment.getPerson().getpId()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
-													src="${comment.getPerson().getProfilePicPath()}" width=20px
-													class="img-circle pull-left" />
-													<h5>&nbsp; ${comment.getPerson().getFirstName()}
-														${comment.getPerson().getLastName()}</a>
+												onerror="this.src='resources/assets/img/default.png';"
+												src="${comment.getPerson().getProfilePicPath()}" width=20px
+												class="img-circle pull-left" />
+												<h5>&nbsp; ${comment.getPerson().getFirstName()}
+													${comment.getPerson().getLastName()}</a>
                                                         </h5>
                                                         <p>${comment.getComment()}</p>
                                                     </c:forEach>
+
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" autocomplete="off" class="form-control form-post comment" name="comment" placeholder="Comment" />
@@ -363,6 +345,7 @@
                                             </div>
                                             <!-- /col-lg-9 -->
                                         </div>
+                                        <!-- /row -->
                                     </c:forEach>
                                 </c:if>
                             </div>
@@ -388,6 +371,51 @@
                                     </div>
                                 </form>
                             </div>
+                                                                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="postModal" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">Post a Status</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form:form class="form-horizontal tasi-form" commandName="posts" method="POST" action="addPosts">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control form-post" name="status" id="status" placeholder="Write a status"></textarea>
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-theme">Share!</button>
+                                                    </form:form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="photoModal" class="modal fade">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title">Upload a Photo</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form:form commandName="photo" method="post" enctype="multipart/form-data" action="photo/upload">
+                                                        <div class="form-group">
+                                                            <textarea class="form-control form-post" name="caption" id="caption" placeholder="Write a caption"></textarea>
+
+                                                            <input type="file" id="read" name="pic" />
+                                                        </div>
+
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <input type="submit" class="btn btn-theme" value="Share!" />
+                                                    </form:form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                             <!--  RIGHT SIDEBAR CONTENT -->
 
                             <div class="col-lg-3 ds">

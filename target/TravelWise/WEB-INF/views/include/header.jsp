@@ -25,101 +25,91 @@
 	
 </script>
 <style>
-#map {
-	height: 100%;
-}
 
-html, body {
-	height: 100%;
-}
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
+
+      #infowindow-content .title {
+        font-weight: bold;
+      }
+
+      #infowindow-content {
+        display: none;
+      }
+
+      #map #infowindow-content {
+        display: inline;
+      }
+
+      .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+      }
+
+      #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+      }
+
+      .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+      }
+
+      .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+
+      #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+      }
+      #target {
+        width: 345px;
+      }
 </style>
 </head>
 <body>
-	<!--header start-->
-	<header class="header black-bg">
-	<div class="sidebar-toggle-box">
-		<div class="fa-white fa-bars tooltips" data-placement="right"
-			data-original-title="Toggle Navigation"></div>
-	</div>
-	<!--logo start--> <a href="/TravelWise/index" class="logo"><b>TW</b></a>
-	<!--logo end-->
-	<div class="nav notify-row" id="top_menu">
-		<!--  notification start -->
-		<ul class="nav top-menu">
-			<!-- settings start -->
-			<li class="dropdown"><a data-toggle="dropdown"
-				class="notification dropdown-toggle" href="index.html#"> <i
-					class="fa-white fa-th-list"></i> <span class="badge bg-theme"><c:out
-							value="${sessionScope.notificationCount}"></c:out></span>
-			</a>
-				<ul class="dropdown-menu extended tasks-bar">
-					<div class="notify-arrow notify-arrow-green"></div>
-					<li>
-						<p class="green">
-							You have
-							<c:out value="${sessionScope.notificationCount}"></c:out>
-							pending notifications
-						</p>
-					</li>
-					<c:forEach var="notification"
-						items="${sessionScope.notificationList}">
-						<li><a
-							href="post?postId=${notification.getPosts().getPostId()}">
-								<div class="task-info">
-									<div class="desc">${notification.getNotification()}</div>
-								</div>
-						</a></li>
-					</c:forEach>
-				</ul></li>
-			<!-- settings end -->
-			<!-- inbox dropdown start-->
-			<li id="header_inbox_bar" class="dropdown"><a
-				data-toggle="dropdown" class="messages dropdown-toggle"
-				href="index.html#"> <i class="fa-white fa-envelope-o"></i> <span
-					class="badge bg-theme"><c:out
-							value="${sessionScope.messageCount}"></c:out></span>
-			</a>
-				<ul class="dropdown-menu extended inbox">
-					<div class="notify-arrow notify-arrow-green"></div>
-					<li>
-						<p class="green">
-							You have
-							<c:out value="${sessionScope.messageCount}"></c:out>
-							new messages
-						</p>
-					</li>
-					<c:forEach var="person" items="${sessionScope.messageList}">
-						<li><a href="getMessage?personId=${person.getpId()}">
-								<div class="task-info">
-									<div class="desc">${person.getFirstName()}
-										${person.getLastName()}</div>
-								</div>
-						</a></li>
-					</c:forEach>
-					<li><a href="inbox">See all messages</a></li>
-				</ul></li>
-			<!-- inbox dropdown end -->
-			<!-- Search Bar -->
-			<li>
-				<div class="pull-left">
-					<form class="form-inline" role="form">
-						<div class="form-group">
-							<input type="text" style="width: 500px;" class="form-control"
-								id="search" placeholder="Search Everyone">
-						</div>
-						<button type="submit" class="btn btn-theme">Search</button>
-					</form>
-				</div> <!-- /form-panel -->
-			</li>
-		</ul>
-		<!--  notification end -->
-	</div>
-	<div class="top-menu">
-		<ul class="nav pull-right top-menu">
-			<li><a class="logout" href="logout">Logout</a></li>
-		</ul>
-	</div>
-	</header>
-	<!--header end-->
+
 </body>
 </html>

@@ -58,6 +58,7 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		UserAccount user = (UserAccount) session.getAttribute("user");
 		ArrayList<Inbox> messages = inboxDao.getPersonMessages(user, personId);
 		Person person = userDao.getPersonByIds(personId);
+		inboxDao.markAsRead(user);
 		model.addAttribute("messages", messages);
 		model.addAttribute("person", person);
 		return "messages";

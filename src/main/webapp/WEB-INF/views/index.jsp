@@ -212,7 +212,7 @@
                                                 <h5>${photo.getCaption()}</h5>
 
                                                 <div class="pic-box">
-                                                    <img onerror="this.src='resources/assets/img/default.png';" src="${photo.getPicPath()}" width=400px />
+                                                    <img class="img-rounded pull-center" onerror="this.src='resources/assets/img/default.png';" src="${photo.getPicPath()}" width=393px />
                                                 </div>
                                                 <p>
                                                     <button class="submitLink addPhotoLike">

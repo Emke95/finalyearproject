@@ -25,7 +25,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 public class Photo {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "photoId", unique=true, nullable = false)
 	private int photoId;
 	

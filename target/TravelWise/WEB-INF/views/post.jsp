@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
     <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
         <html lang="en">
 
@@ -22,6 +23,7 @@
             <script src="resources/assets/js/custom/search.js"></script>
             <script src="resources/assets/js/custom/infiniteScrolling.js"></script>
             <script src="resources/assets/js/custom/likes.js"></script>
+            <script src="resources/assets/js/custom/unlikes.js"></script>
             <script src="resources/assets/js/custom/comments.js"></script>
             <script src="resources/assets/js/custom/readNotification.js"></script>
             <script src="resources/assets/js/custom/readMessages.js"></script>
@@ -30,12 +32,7 @@
         </head>
 
         <body>
-            <%
-		//   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
-		//   response.addHeader("Pragma", "no-cache"); 
-		//   response.addDateHeader ("Expires", 0);
-	%>
-                <section id="container">
+          <section id="container">
                     <!--TOP BAR CONTENT & NOTIFICATIONS -->
                     <!--header start-->
                     <header class="header black-bg">
@@ -178,20 +175,26 @@
                                     <c:if test="${not empty post }">
                                         <div class="row mtpost">
                                             <div class="form-panel">
-                                                <a href="profile.html"><img
+                                                <a href="profile?personId=${post.getPerson().getpId()}"> <img
 										onerror="this.src='resources/assets/img/default.png';"
 										src="${post.getPerson().getProfilePicPath()}" width=40px
 										class="img-circle pull-left" />
-										<h4>&nbsp; ${post.getPerson().getFirstName()}
-											${post.getPerson().getLastName()}</a>
-                                                </h4>
-                                                <br />
-                                                <p>
+										<h4>
+											&nbsp; ${post.getPerson().getFirstName()}
+											${post.getPerson().getLastName()}
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+											<fmt:formatDate value="${post.getDateOfPost()}"
+												pattern="dd/MM/yyyy" />
+										</h4></a> <br />
+                                                <h5>
                                                     <c:out value="${post.getStatus()}"></c:out>
-                                                </p>
+                                                </h5>
                                                 <p>
                                                     <button class="submitLink addLike">
 											<i class="fa fa-thumbs-up"></i> Like
+										</button>
+                                                    <button class="submitLink unLike">
+											<i class="fa fa-thumbs-down"></i> unlike
 										</button>
                                                     <span class="like">${post.getLikes()}</span>
                                                 </p>
@@ -232,7 +235,7 @@
                                 </div>
                                 <!-- /col-lg-3 -->
                             </div>
-                            <! --/row -->
+                            <!--/row -->
                         </section>
                     </section>
 
