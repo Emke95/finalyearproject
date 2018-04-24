@@ -44,26 +44,36 @@
 	<section id="container">
 		<!-- *TOP BAR CONTENT & NOTIFICATIONS -->
 		<!--header start-->
+		<!--logo start-->
+		<a href="/TravelBug/index" class="logo"><img
+			onerror="this.src='resources/assets/img/travelbug.png';"
+			src='resources/assets/img/travelbug.png' width="60" /></a>
+		<!--logo end-->
 		<header class="header black-bg">
+
 			<div class="sidebar-toggle-box">
 				<div class="fa-white fa-bars tooltips" data-placement="right"
 					data-original-title="Toggle Navigation"></div>
 			</div>
+
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
+
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
 				<ul class="nav top-menu">
 					<!-- settings start -->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="notification dropdown-toggle" href="index.html#"> <i
-							class="fa-white fa-th-list"></i> 
-							<c:if test="${sessionScope.notificationCount > 0}">
-							<span class="badge bg-theme">
-								<c:out value="${sessionScope.notificationCount}"></c:out>
-						</span>
-						</c:if>
+							class="fa-white fa-th-list"></i> <c:if
+								test="${sessionScope.notificationCount > 0}">
+								<span class="badge bg-theme"> <c:out
+										value="${sessionScope.notificationCount}"></c:out>
+								</span>
+							</c:if>
 					</a>
 						<ul class="dropdown-menu extended tasks-bar">
 							<div class="notify-arrow notify-arrow-green"></div>
@@ -92,10 +102,11 @@
 					<!-- inbox dropdown start-->
 					<li id="header_inbox_bar" class="dropdown"><a
 						data-toggle="dropdown" class="messages dropdown-toggle"
-						href="index.html#"> <i class="fa-white fa-envelope-o"></i> 
-						<c:if test="${sessionScope.messageCount > 0}">
-						<span class="badge bg-theme"> 
-						<c:out value="${sessionScope.messageCount}"></c:out></span> </c:if>
+						href="index.html#"> <i class="fa-white fa-envelope-o"></i> <c:if
+								test="${sessionScope.messageCount > 0}">
+								<span class="badge bg-theme"> <c:out
+										value="${sessionScope.messageCount}"></c:out></span>
+							</c:if>
 					</a>
 						<ul class="dropdown-menu extended inbox">
 							<div class="notify-arrow notify-arrow-green"></div>
@@ -123,7 +134,7 @@
 							<form class="form-inline" role="form">
 								<div class="form-group">
 									<input type="text" style="width: 500px;" class="form-control"
-										id="search" placeholder="Search Everyone">
+										id="search" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-theme">Search</button>
 							</form>
@@ -148,7 +159,7 @@
 				<ul class="sidebar-menu" id="nav-accordion">
 
 					<p class="centered">
-						<a href="profile?personId=${sessionScope.user.getuId()}"><img
+						<a href="profile?personId=${sessionScope.user.getuId()}"> <img
 							onerror="this.src='resources/assets/img/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
@@ -188,9 +199,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -209,20 +220,17 @@
 
 						<div class="row mtpost">
 							<div class="form-panel">
-								<div class="login-wrap">
-									<span class="pull-left"> <a data-toggle="modal"
-										href="index.html#postModal"><h4>
-												<i class="fa fa-pencil"></i>&nbsp;Post
-												Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-											</h4></a>
-									</span> <span class="pull-left"> <a data-toggle="modal"
-										href="index.html#photoModal"><h4>
-												<i class="fa fa-image"></i>&nbsp;Upload a Photo
-											</h4></a>
-									</span>
-								</div>
+								<a data-toggle="modal" href="index.html#postModal"><h4>
+										<i class="fa fa-pencil"></i>&nbsp;Post
+										Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <a
+									data-toggle="modal" href="index.html#photoModal"> <i
+									class="fa fa-image"></i>&nbsp;Upload a Photo
+								</a>
+								</h4>
 							</div>
 						</div>
+
+						
 
 
 						<c:forEach var="photo" items="${photos}">
@@ -242,11 +250,11 @@
 									<h5>${photo.getCaption()}</h5>
 
 									<div class="pic-box">
-										<a href="photo?picPath=${photo.getPicPath()}">
-										<img class="img-edges pull-center"
+										<a href="photo?picPath=${photo.getPicPath()}"> <img
+											class="img-edges pull-center"
 											onerror="this.src='resources/assets/img/default.png';"
 											src="${photo.getPicPath()}" width=393px />
-											</a>
+										</a>
 									</div>
 									<p>
 										<button class="submitLink addPhotoLike">
@@ -288,8 +296,7 @@
 						<c:forEach var="post" items="${posts}">
 							<div class="row mtpost">
 								<div class="form-panel">
-									<a href="profile?personId=${post.getPerson().getpId()}"> 
-									<img
+									<a href="profile?personId=${post.getPerson().getpId()}"> <img
 										onerror="this.src='resources/assets/img/default.png';"
 										src="${post.getPerson().getProfilePicPath()}" width=40px
 										class="img-circle pull-left" />

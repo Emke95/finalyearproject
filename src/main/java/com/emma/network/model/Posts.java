@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "Posts")
 public class Posts {
 
-	@Id	@GeneratedValue
+	@Id	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "PostId")
 	private int postId;
 
@@ -32,7 +33,6 @@ public class Posts {
 	@Column(name= "DateOfPost")
 	private Date dateOfPost;
 
-	//Person-->Posts
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PersonId")
 	private Person person;

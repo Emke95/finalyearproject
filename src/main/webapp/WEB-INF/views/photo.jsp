@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html lang="en">
@@ -47,7 +46,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -184,9 +185,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -244,18 +245,19 @@
 											</h5>
 											<p>${comment.getComment()}</p>
 										</c:forEach>
+
 									</div>
 									<div class="form-group">
 										<input type="text" autocomplete="off"
 											class="form-control form-post comment" name="comment"
 											placeholder="Comment" />
 									</div>
-									<button type="submit" class="addComment btn btn-theme btn-xs">Comment</button>
+									<button type="submit"
+										class="addPhotoComment btn btn-theme btn-xs">Comment</button>
 								</div>
 								<!-- /col-lg-9 -->
 							</div>
 							<!-- /row -->
-
 						</c:if>
 
 					</div>

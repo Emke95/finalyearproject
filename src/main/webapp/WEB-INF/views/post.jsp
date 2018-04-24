@@ -45,7 +45,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -114,7 +116,7 @@
 							<form class="form-inline" role="form">
 								<div class="form-group">
 									<input type="text" style="width: 500px;" class="form-control"
-										id="search" placeholder="Search Everyone">
+										id="search" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-theme">Search</button>
 							</form>
@@ -181,9 +183,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>

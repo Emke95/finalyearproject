@@ -30,7 +30,8 @@
 <script src="resources/assets/js/custom/readNotification.js"></script>
 <script src="resources/assets/js/custom/readMessages.js"></script>
 <script type="text/javascript">
-            </script>
+    
+</script>
 
 </head>
 
@@ -49,7 +50,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -57,11 +60,12 @@
 					<!-- settings start -->
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="notification dropdown-toggle" href="index.html#"> <i
-							class="fa-white fa-th-list"></i> <c:if test="${sessionScope.notificationCount > 0}">
-							<span class="badge bg-theme">
-								<c:out value="${sessionScope.notificationCount}"></c:out>
-						</span>
-						</c:if>
+							class="fa-white fa-th-list"></i> <c:if
+								test="${sessionScope.notificationCount > 0}">
+								<span class="badge bg-theme"> <c:out
+										value="${sessionScope.notificationCount}"></c:out>
+								</span>
+							</c:if>
 					</a>
 						<ul class="dropdown-menu extended tasks-bar">
 							<div class="notify-arrow notify-arrow-green"></div>
@@ -86,10 +90,11 @@
 					<!-- inbox dropdown start-->
 					<li id="header_inbox_bar" class="dropdown"><a
 						data-toggle="dropdown" class="messages dropdown-toggle"
-						href="index.html#"> <i class="fa-white fa-envelope-o"></i> 
-<c:if test="${sessionScope.messageCount > 0}">
-						<span class="badge bg-theme"> 
-						<c:out value="${sessionScope.messageCount}"></c:out></span> </c:if>
+						href="index.html#"> <i class="fa-white fa-envelope-o"></i> <c:if
+								test="${sessionScope.messageCount > 0}">
+								<span class="badge bg-theme"> <c:out
+										value="${sessionScope.messageCount}"></c:out></span>
+							</c:if>
 					</a>
 						<ul class="dropdown-menu extended inbox">
 							<div class="notify-arrow notify-arrow-green"></div>
@@ -155,7 +160,7 @@
 					<li class="mt"><a href="index"> <i
 							class="fa fa-stack-exchange"></i> <span>Home</span>
 					</a></li>
-<c:if test="${sessionScope.requestCount > 0}">
+					<c:if test="${sessionScope.requestCount > 0}">
 						<li class="sub-menu"><a href="javascript:;"> <i
 								class="fa fa-child"></i> <span>Friends
 									&nbsp;&nbsp;&nbsp;&nbsp; <span class="badge bg-theme"><c:out
@@ -184,9 +189,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -202,7 +207,7 @@
 				<div class="row">
 					<div id="searchArea" class="col-lg-9">
 
-
+<c:if test="${sessionScope.requestCount > 0}">
 						<c:forEach var="person" items="${personList}">
 							<div class="row mtpost">
 								<div class="form-panel">
@@ -230,7 +235,13 @@
 								</div>
 							</div>
 						</c:forEach>
+</c:if>
 
+<c:if test="${sessionScope.requestCount == 0}">
+<div class="form-panel">
+									<h4>No friend requests!</h4>
+								</div>
+</c:if>
 					</div>
 					<!--RIGHT SIDEBAR CONTENT -->
 
@@ -279,18 +290,18 @@
 	<!--script for this page-->
 
 	<script type="text/javascript">
-                    $(function() {
-                        //    fancybox
-                        jQuery(".fancybox").fancybox();
-                    });
-                </script>
+	$(function() {
+	    //    fancybox
+	    jQuery(".fancybox").fancybox();
+	});
+    </script>
 	<script>
-                    //custom select box
+	//custom select box
 
-                    $(function() {
-                        $('select.styled').customSelect();
-                    });
-                </script>
+	$(function() {
+	    $('select.styled').customSelect();
+	});
+    </script>
 
 </body>
 

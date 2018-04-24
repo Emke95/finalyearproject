@@ -54,7 +54,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -125,7 +127,7 @@
 							<form class="form-inline" role="form">
 								<div class="form-group">
 									<input type="text" style="width: 500px;" class="form-control"
-										id="search" placeholder="Search Everyone">
+										id="search" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-theme">Search</button>
 							</form>
@@ -192,9 +194,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 
@@ -246,6 +248,16 @@
 									<h3>
 										<i class="fa fa-angle-right"></i> ${person.getFirstName()}
 										${person.getLastName()}
+										<c:if test="${person.getGender() == 'Male'}">
+
+											<i class="fa fa-male"></i>
+
+										</c:if>
+										<c:if test="${person.getGender() == 'Female'}">
+
+											<i class="fa fa-female"></i>
+
+										</c:if>
 									</h3>
 
 									<c:if
@@ -263,9 +275,7 @@
 
 									<c:if
 										test="${checkIfFriend || sessionScope.user.getuId() == person.getpId()}">
-										<h4>
-											<i class="fa fa-male"></i> ${person.getGender()}
-										</h4>
+
 										<h4>
 											<i class="fa fa-birthday-cake"></i> ${person.getDobString()}
 										</h4>
@@ -299,7 +309,7 @@
 												placeholder="Username" autocomplete="off"
 												class="form-control placeholder-no-fix">
 										<h4>
-											<i style="color: green;" class="fa fa-check"></i><i
+											<i style="color: green;" class="fa fa-check"></i> <i
 												style="color: red;" class="fa fa-times"></i>
 										</h4>
 										</p>
@@ -340,16 +350,16 @@
 
 						</div>
 
+
+
 						<c:if
 							test="${checkIfFriend && sessionScope.user.getuId() != person.getpId()}">
 							<div class="row mtpost">
 								<form:form method="POST" action="unFriend">
-
 									<button type="submit" class="pull-right btn btn-danger btn-sm">UnFriend</button>
 									<input type="hidden" name="personId" value="${person.getpId()}" />
 									<a href="getMessage?personId=${person.getpId()}"
 										class="pull-right btn btn-warning btn-sm">Send Message</a>
-
 								</form:form>
 							</div>
 						</c:if>
@@ -358,25 +368,89 @@
 						<c:if test="${sessionScope.user.getuId() == person.getpId()}">
 							<div class="row mtpost">
 								<div class="form-panel">
-									<div class="login-wrap">
-										<span class="pull-left"> <a data-toggle="modal"
-											href="index.html#postModal"><h4>
-													<i class="fa fa-pencil"></i>&nbsp;Post
-													Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												</h4></a>
-										</span> <span class="pull-left"> <a data-toggle="modal"
-											href="index.html#photoModal"><h4>
-													<i class="fa fa-image"></i>&nbsp;Upload a Photo
-												</h4></a>
-										</span>
-									</div>
+									<a data-toggle="modal" href="index.html#postModal"><h4>
+											<i class="fa fa-pencil"></i>&nbsp;Post
+											Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a> <a
+										data-toggle="modal" href="index.html#photoModal"> <i
+										class="fa fa-image"></i>&nbsp;Upload a Photo
+									</a>
+									</h4>
 								</div>
 							</div>
+						</c:if>
 
+						<c:if
+							test="${sessionScope.postCount == 0 && sessionScope.photoCount == 0}">
+							<div class="row mtpost">
+								<div class="form-panel">
+									<h5>
+										No posts yet! Start exploring on the <a href="map"> <i
+											class="fa fa-globe"></i> <span>map</span>
+										</a>
+									</h5>
+								</div>
+							</div>
 						</c:if>
 
 						<c:if
 							test="${checkIfFriend || sessionScope.user.getuId() == person.getpId()}">
+							<c:forEach var="photo" items="${photos}">
+								<div class="row mtpost">
+									<div class="form-panel">
+										<a href="profile?personId=${photo.getPerson().getpId()}">
+											<img onerror="this.src='resources/assets/img/default.png';"
+											src="${photo.getPerson().getProfilePicPath()}" width=40px
+											class="img-circle pull-left" />
+											<h4>
+												&nbsp; ${photo.getPerson().getFirstName()}
+												${photo.getPerson().getLastName()}
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												<fmt:formatDate value="${photo.getUploadDate()}"
+													pattern="dd/MM/yyyy" />
+											</h4>
+										</a> <br />
+										<h4>${photo.getCaption()}</h4>
+										<div class="row mtpost"></div>
+										<div class="pic-box">
+											<img class="img-edges pull-center"
+												onerror="this.src='resources/assets/img/default.png';"
+												src="${photo.getPicPath()}" width=400px />
+										</div>
+										<p>
+											<button class="submitLink addPhotoLike">
+												<i class="fa fa-thumbs-up"></i> Like
+											</button>
+											<button class="submitLink unLikePhoto">
+												<i class="fa fa-thumbs-down"></i> unlike
+											</button>
+											<span class="like">${photo.getLikes()}</span>
+										</p>
+										<hidden class="photoId" value="${photo.getPhotoId()}" />
+										<div class="postEnd commentSection">
+											<c:forEach var="comment" items="${photo.getComments()}">
+												<a href="profile?personId=${comment.getPerson().getpId()}"><img
+													onerror="this.src='resources/assets/img/default.png';"
+													src="${comment.getPerson().getProfilePicPath()}" width=20px
+													class="img-circle pull-left" />
+													<h5>&nbsp; ${comment.getPerson().getFirstName()}
+														${comment.getPerson().getLastName()}</a>
+												</h5>
+												<p>${comment.getComment()}</p>
+											</c:forEach>
+
+										</div>
+										<div class="form-group">
+											<input type="text" autocomplete="off"
+												class="form-control form-post comment" name="comment"
+												placeholder="Comment" />
+										</div>
+										<button type="submit"
+											class="addPhotoComment btn btn-theme btn-xs">Comment</button>
+									</div>
+									<!-- /col-lg-9 -->
+								</div>
+								<!-- /row -->
+							</c:forEach>
 							<c:forEach var="post" items="${posts}">
 								<div class="row mtpost">
 									<div class="form-panel">
@@ -422,64 +496,6 @@
 												placeholder="Comment" />
 										</div>
 										<button type="submit" class="addComment btn btn-theme btn-xs">Comment</button>
-									</div>
-									<!-- /col-lg-9 -->
-								</div>
-								<!-- /row -->
-							</c:forEach>
-
-							<c:forEach var="photo" items="${photos}">
-								<div class="row mtpost">
-									<div class="form-panel">
-										<a href="profile?personId=${photo.getPerson().getpId()}">
-											<img onerror="this.src='resources/assets/img/default.png';"
-											src="${photo.getPerson().getProfilePicPath()}" width=40px
-											class="img-circle pull-left" />
-											<h4>
-												&nbsp; ${photo.getPerson().getFirstName()}
-												${photo.getPerson().getLastName()}
-												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-												<fmt:formatDate value="${photo.getUploadDate()}"
-													pattern="dd/MM/yyyy" />
-											</h4>
-										</a> <br />
-										<h4>${photo.getCaption()}</h4>
-
-										<div class="pic-box">
-											<img class="img-edges pull-center"
-												onerror="this.src='resources/assets/img/default.png';"
-												src="${photo.getPicPath()}" width=400px />
-										</div>
-										<p>
-											<button class="submitLink addPhotoLike">
-												<i class="fa fa-thumbs-up"></i> Like
-											</button>
-											<button class="submitLink unLikePhoto">
-												<i class="fa fa-thumbs-down"></i> unlike
-											</button>
-											<span class="like">${photo.getLikes()}</span>
-										</p>
-										<hidden class="photoId" value="${photo.getPhotoId()}" />
-										<div class="postEnd commentSection">
-											<c:forEach var="comment" items="${photo.getComments()}">
-												<a href="profile?personId=${comment.getPerson().getpId()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
-													src="${comment.getPerson().getProfilePicPath()}" width=20px
-													class="img-circle pull-left" />
-													<h5>&nbsp; ${comment.getPerson().getFirstName()}
-														${comment.getPerson().getLastName()}</a>
-												</h5>
-												<p>${comment.getComment()}</p>
-											</c:forEach>
-
-										</div>
-										<div class="form-group">
-											<input type="text" autocomplete="off"
-												class="form-control form-post comment" name="comment"
-												placeholder="Comment" />
-										</div>
-										<button type="submit"
-											class="addPhotoComment btn btn-theme btn-xs">Comment</button>
 									</div>
 									<!-- /col-lg-9 -->
 								</div>

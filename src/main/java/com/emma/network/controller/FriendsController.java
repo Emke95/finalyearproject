@@ -67,6 +67,8 @@ public class FriendsController {
 		session.setAttribute("requestList", friendRequests);
 		model.addAttribute("requestList", friendRequests);
 		
+		session.setAttribute("friendsCount", String.valueOf(friendIds.size()));
+		model.addAttribute("friendsCount", String.valueOf(friendIds.size()));
 		
 		if(friendIds.size() > 0)
 		{
@@ -74,6 +76,7 @@ public class FriendsController {
 			model.addAttribute("personList", personList);
 		}
 		return "friends";
+		
 	}
 	
 	@RequestMapping(value = "/friendRequests", method = RequestMethod.GET)
@@ -125,6 +128,9 @@ public class FriendsController {
 		session.setAttribute("messageList", personList1);
 		model.addAttribute("messageList", personList1);
 		
+		session.setAttribute("pendingCount", String.valueOf(pendingRequests.size()));
+		model.addAttribute("pendingCount", String.valueOf(pendingRequests.size()));
+	
 		
 		if(pendingRequests.size() > 0)
 		{

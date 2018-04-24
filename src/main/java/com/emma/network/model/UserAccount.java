@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -24,23 +25,22 @@ public class UserAccount {
 	public enum Role {
 		USER, ADMIN
 	}
-	@Id	@GeneratedValue(generator="newGenerator") //name of primary key generator
-	//create uid as foreign key
+	@Id	@GeneratedValue(generator="newGenerator")
 	@GenericGenerator(name="newGenerator", strategy="foreign",parameters = { @Parameter(value= "person", name="property")})
 	@Column(name="PersonId")
 	private int uId;
 	
 	@NotEmpty(message="Username cannot be null")
-	@Column(name="username")
+	@Size(min=5, max=15, message="Username must be 5-15 characters.")
+	@Column(name="username", nullable = false, unique = true)
 	private String username;
 	
 	@NotEmpty(message="password cannot be null")
-	@Column(name="password")
+	@Column(name="password", nullable=false)
+	@Size(min=4, max=15, message="Password must be 4-15 characters.")
 	private String password;
 	
-	//bidirectional one to one mapping
 	@OneToOne(cascade = CascadeType.ALL) 
-	//CascadeType.ALL performs actions on parent class when child class is changed automatically
 	@JoinColumn(name="PersonId")
 	private Person person;
 
@@ -57,17 +57,7 @@ public class UserAccount {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
-	
-	/*//Many to one mapping
-	@ManyToOne(cascade = CascadeType.ALL)
-	private UserRole role;
-	
-	public UserRole getRole() {
-		return role;
-	}
-	public void setRole(UserRole role) {
-		this.role = role;
-	}*/
+
 	public int getuId() {
 		return uId;
 	}
@@ -98,6 +88,4 @@ public class UserAccount {
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-	
-	
 }

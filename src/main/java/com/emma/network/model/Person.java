@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
@@ -26,26 +27,31 @@ public class Person {
 	@Column(name = "PersonId")
 	private int pId;
 	
-	@Column(name = "FirstName")
+	@Column(name = "FirstName", nullable=false)
 	private String firstName;
 	
-	@Column(name = "LastName")
+	@Column(name = "LastName", nullable=false)
 	private String lastName;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "DateOfBirth")
+	@Column(name = "DateOfBirth", nullable=false)
 	private Date dob;
 	
 	@Column(name = "Gender")
 	private String gender;
 	
 	@Column(name = "Email")
+	@Email
 	private String email;
 	
 	private CommonsMultipartFile profilePic;
 	
 	@Column(name = "ProfilePicPath")
 	private String profilePicPath;
+	
+	@OneToOne(cascade = CascadeType.ALL) 
+	@JoinColumn(name="PersonId")
+	private UserAccount userAccount;
 	
 	public String getProfilePicPath() {
 		return profilePicPath;
@@ -59,9 +65,6 @@ public class Person {
 	public void setProfilePic(CommonsMultipartFile profilePic) {
 		this.profilePic = profilePic;
 	}
-	@OneToOne(cascade = CascadeType.ALL) 
-	@JoinColumn(name="PersonId")
-	private UserAccount userAccount;
 	
 	public UserAccount getUserAccount() {
 		return userAccount;

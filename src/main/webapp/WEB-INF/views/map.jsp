@@ -11,7 +11,7 @@
 
             <body>
                 <section id="container">
-<a href="/TravelBug/index" class="logo"><b><font color="FF00CC">TW</font></b></a>                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<a href="/TravelBug/index" class="logo"><b><font color="125688">Tb</font></b></a>                    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                     <div id="map">
                         <script>
                             function initMap() {
@@ -149,15 +149,15 @@
     marker4 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(52.3837, 4.902233333333334),
+        position:new google.maps.LatLng(55.605447222222224, 12.995225),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG-3544.jpg"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG-3273.JPG"});
 		    google.maps.event.addListener(marker4, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG-3544.jpg');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG-3273.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker4, 'mouseover', function() {
                                     marker4.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG-3544.jpg',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG-3273.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker4, 'mouseout', function(){
@@ -169,15 +169,15 @@
     marker5 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(52.51862777777778, 13.399858333333333),
+        position:new google.maps.LatLng(52.3837, 4.902233333333334),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG-3868.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG-3544.jpg"});
 		    google.maps.event.addListener(marker5, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG-3868.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG-3544.jpg');
 			return false;
 		    });                                google.maps.event.addListener(marker5, 'mouseover', function() {
                                     marker5.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG-3868.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG-3544.jpg',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker5, 'mouseout', function(){
@@ -189,15 +189,15 @@
     marker6 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.37334444444444, -6.241044444444444),
+        position:new google.maps.LatLng(52.51862777777778, 13.399858333333333),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\imgsnow.jpg"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG-3868.JPG"});
 		    google.maps.event.addListener(marker6, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/imgsnow.jpg');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG-3868.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker6, 'mouseover', function() {
                                     marker6.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\imgsnow.jpg',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG-3868.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker6, 'mouseout', function(){
@@ -209,15 +209,15 @@
     marker7 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.393975, -6.0667027777777776),
+        position:new google.maps.LatLng(53.37334444444444, -6.241044444444444),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2410.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\imgsnow.jpg"});
 		    google.maps.event.addListener(marker7, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2410.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/imgsnow.jpg');
 			return false;
 		    });                                google.maps.event.addListener(marker7, 'mouseover', function() {
                                     marker7.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2410.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\imgsnow.jpg',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker7, 'mouseout', function(){
@@ -229,15 +229,15 @@
     marker8 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(50.847905555555556, 4.3589416666666665),
+        position:new google.maps.LatLng(52.09858333333334, 5.836799999999999),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2700.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2235.JPG"});
 		    google.maps.event.addListener(marker8, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2700.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2235.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker8, 'mouseover', function() {
                                     marker8.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2700.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2235.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker8, 'mouseout', function(){
@@ -249,15 +249,15 @@
     marker9 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.37146388888889, -6.185213888888889),
+        position:new google.maps.LatLng(52.37081944444444, 4.894597222222222),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5502.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2365.JPG"});
 		    google.maps.event.addListener(marker9, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_5502.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2365.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker9, 'mouseover', function() {
                                     marker9.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_5502.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2365.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker9, 'mouseout', function(){
@@ -269,15 +269,15 @@
     marker10 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.374008333333336, -6.165097222222222),
+        position:new google.maps.LatLng(53.393975, -6.0667027777777776),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2410.JPG"});
 		    google.maps.event.addListener(marker10, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_5598.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2410.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker10, 'mouseover', function() {
                                     marker10.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2410.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker10, 'mouseout', function(){
@@ -289,15 +289,15 @@
     marker11 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(52.96801111111111, -9.431155555555556),
+        position:new google.maps.LatLng(50.847905555555556, 4.3589416666666665),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_2700.JPG"});
 		    google.maps.event.addListener(marker11, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_6117.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_2700.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker11, 'mouseover', function() {
                                     marker11.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_2700.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker11, 'mouseout', function(){
@@ -309,15 +309,15 @@
     marker12 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(52.84419166666667, -8.982477777777778),
+        position:new google.maps.LatLng(53.37146388888889, -6.185213888888889),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5502.JPG"});
 		    google.maps.event.addListener(marker12, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_6132.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_5502.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker12, 'mouseover', function() {
                                     marker12.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_5502.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker12, 'mouseout', function(){
@@ -329,15 +329,15 @@
     marker13 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.347655555555555, -6.320386111111111),
+        position:new google.maps.LatLng(53.374008333333336, -6.165097222222222),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG"});
 		    google.maps.event.addListener(marker13, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_7467.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_5598.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker13, 'mouseover', function() {
                                     marker13.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_5598.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker13, 'mouseout', function(){
@@ -349,15 +349,15 @@
     marker14 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.114025, -6.2634944444444445),
+        position:new google.maps.LatLng(52.96801111111111, -9.431155555555556),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG"});
 		    google.maps.event.addListener(marker14, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_7534.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_6117.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker14, 'mouseover', function() {
                                     marker14.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_6117.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker14, 'mouseout', function(){
@@ -369,19 +369,79 @@
     marker15 = new google.maps.Marker({
 	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
 	scaledSize: new google.maps.Size(40,40),}),
-        position:new google.maps.LatLng(53.38846111111111, -6.063938888888889),
+        position:new google.maps.LatLng(52.84419166666667, -8.982477777777778),
         map:map,
-        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG"});
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG"});
 		    google.maps.event.addListener(marker15, 'click', function() {
-			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_8489.JPG');
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_6132.JPG');
 			return false;
 		    });                                google.maps.event.addListener(marker15, 'mouseover', function() {
                                     marker15.setIcon({
-                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG',
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_6132.JPG',
                                         scaledSize: new google.maps.Size(150, 150),
                                     });
                                 });google.maps.event.addListener(marker15, 'mouseout', function(){
                                     marker15.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
+                                });
+    marker16 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
+        position:new google.maps.LatLng(53.347655555555555, -6.320386111111111),
+        map:map,
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG"});
+		    google.maps.event.addListener(marker16, 'click', function() {
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_7467.JPG');
+			return false;
+		    });                                google.maps.event.addListener(marker16, 'mouseover', function() {
+                                    marker16.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7467.JPG',
+                                        scaledSize: new google.maps.Size(150, 150),
+                                    });
+                                });google.maps.event.addListener(marker16, 'mouseout', function(){
+                                    marker16.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
+                                });
+    marker17 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
+        position:new google.maps.LatLng(53.114025, -6.2634944444444445),
+        map:map,
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG"});
+		    google.maps.event.addListener(marker17, 'click', function() {
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_7534.JPG');
+			return false;
+		    });                                google.maps.event.addListener(marker17, 'mouseover', function() {
+                                    marker17.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_7534.JPG',
+                                        scaledSize: new google.maps.Size(150, 150),
+                                    });
+                                });google.maps.event.addListener(marker17, 'mouseout', function(){
+                                    marker17.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\marker.png',
+                                        scaledSize: new google.maps.Size(40,40),
+                                        });
+                                });
+    marker18 = new google.maps.Marker({
+	icon: ({ url: 'resources\\assets\\img\\profile\\marker.png',
+	scaledSize: new google.maps.Size(40,40),}),
+        position:new google.maps.LatLng(53.38846111111111, -6.063938888888889),
+        map:map,
+        title:"C:\\Users\\emma.keyes\\eclipse-workspace\\FinalYearProject\\src\\main\\webapp\\resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG"});
+		    google.maps.event.addListener(marker18, 'click', function() {
+			var winPop = window.open(this.href='photo?picPath=resources/assets/img/profile/user_images/IMG_8489.JPG');
+			return false;
+		    });                                google.maps.event.addListener(marker18, 'mouseover', function() {
+                                    marker18.setIcon({
+                                        url: 'resources\\assets\\img\\profile\\user_images\\IMG_8489.JPG',
+                                        scaledSize: new google.maps.Size(150, 150),
+                                    });
+                                });google.maps.event.addListener(marker18, 'mouseout', function(){
+                                    marker18.setIcon({
                                         url: 'resources\\assets\\img\\profile\\marker.png',
                                         scaledSize: new google.maps.Size(40,40),
                                         });

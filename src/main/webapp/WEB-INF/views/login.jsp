@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html lang="en">
 
 <head>
@@ -115,9 +116,10 @@
 								<span id="validEmail" class="validEmail"></span>
 							</p>
 							<p>
-								<input type="text" name="dob" placeholder="Date of Birth"
+								<input type="date" name="dob" placeholder="Date of Birth"
 									autocomplete="off" class="form-control placeholder-no-fix">
 							</p>
+							
 							<p>
 								<input type="radio" name="gender" id="gender" value="Male"
 									class="radio-inline"> Male</input> <input type="radio"

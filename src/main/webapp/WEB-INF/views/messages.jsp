@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html lang="en">
 
@@ -49,7 +50,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -88,7 +91,7 @@
 					<li id="header_inbox_bar" class="dropdown"><a
 						data-toggle="dropdown" class="messages dropdown-toggle"
 						href="index.html#"> <i class="fa-white fa-envelope-o"></i> <c:if
-								test="${sessionScope.messageCount > 0}">
+								test="${sessionScope.messageCount > 1}">
 								<span class="badge bg-theme"> <c:out
 										value="${sessionScope.messageCount}"></c:out></span>
 							</c:if>
@@ -119,7 +122,7 @@
 							<form class="form-inline" role="form">
 								<div class="form-group">
 									<input type="text" style="width: 500px;" class="form-control"
-										id="search" placeholder="Search Everyone">
+										id="search" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-theme">Search</button>
 							</form>
@@ -187,9 +190,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -207,42 +210,46 @@
 					<div id="searchArea" class="col-lg-9 main-chart">
 
 						<h3>
-							<a href="profile?personId=${person.getpId()}">
-							<img class="img-circle"
+							<a href="profile?personId=${person.getpId()}"> <img
+								class="img-circle"
 								onerror="this.src='resources/assets/img/default.png';"
 								style="width: 30px; height: 30px;"
 								src="${person.getProfilePicPath()}">${person.getFirstName()}
-							${person.getLastName()}
+								${person.getLastName()}
 							</a>
 						</h3>
 
 						<div id="chatArea" style="overflow: scroll; height: 350px;"
 							class="row mtpost">
 							<c:forEach var="message" items="${messages}">
-								<c:if
-									test="${message.getFromUser().getpId() != sessionScope.user.getuId()}">
+								<c:if test="${message.getFromUser().getpId() != sessionScope.user.getuId()}">
 									<div class="message form-panel pull-left">
+										<a href="profile?personId=${person.getpId()}">
 										<img onerror="this.src='resources/assets/img/default.png';"
 											src="${message.getFromUser().getProfilePicPath()}" width=20px
 											class="img-circle pull-left" />
 										<h6>
 											&nbsp; ${message.getFromUser().getFirstName()}
-											${message.getFromUser().getLastName()} </a>
+											${message.getFromUser().getLastName()}</a>&nbsp;
+											<fmt:formatDate value="${message.getDateOfMessage()}"
+												pattern="dd/MM/yy HH:mm" />
 										</h6>
 										<p>${message.getMessage()}</p>
 									</div>
 									<!-- form-panel -->
 								</c:if>
-								<c:if
-									test="${message.getFromUser().getpId() == sessionScope.user.getuId()}">
+								<c:if test="${message.getFromUser().getpId() == sessionScope.user.getuId()}">
 									<div style="background-color: #68dff0;"
 										class="message form-panel pull-right">
+										<a href="profile?personId=${message.getFromUser().getpId()}">
 										<img onerror="this.src='resources/assets/img/default.png';"
-											src="${message.getToUser().getProfilePicPath() }" width=20px
+											src="${message.getFromUser().getProfilePicPath() }" width=20px
 											class="img-circle pull-left" />
 										<h6>
 											&nbsp; ${message.getFromUser().getFirstName()}
-											${message.getFromUser().getLastName()} </a>
+											${message.getFromUser().getLastName()} </a>&nbsp;
+											<fmt:formatDate value="${message.getDateOfMessage()}"
+												pattern="dd/MM/yy HH:mm" />
 										</h6>
 										<p>${message.getMessage()}</p>
 									</div>
@@ -259,17 +266,9 @@
 						</div>
 						<button type="submit" id="send" class="btn btn-theme">Send</button>
 					</div>
-					<!-- /col-lg-9 END SECTION MIDDLE -->
-
-					<!--RIGHT SIDEBAR CONTENT -->
-
-					<div class="col-lg-3 ds">
-						<!--COMPLETED ACTIONS DONUTS CHART-->
-
-					</div>
-					<!-- /col-lg-3 -->
+					<div class="col-lg-3 ds"></div>
 				</div>
-				<! --/row -->
+
 			</section>
 		</section>
 

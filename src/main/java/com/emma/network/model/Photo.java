@@ -24,9 +24,8 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 @Table(name = "Photo")
 public class Photo {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	@Column(name = "photoId", unique=true, nullable = false)
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "photoId")
 	private int photoId;
 	
 	@Column(name="fileName")

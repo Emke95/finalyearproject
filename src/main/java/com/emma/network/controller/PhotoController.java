@@ -43,7 +43,6 @@ public class PhotoController {
 	@Autowired
 	private FriendsDao friendDao;
 	
-
 	@Autowired
 	private NotificationDao notificationDao;
 
@@ -64,6 +63,7 @@ public class PhotoController {
 		model.addAttribute("photo", photo);
 		return "photo-upload";
 	}
+	
 	@RequestMapping(value = "/photo/upload", method = RequestMethod.POST)
 	public String handleUpload(Model model,  Photo photo, HttpServletRequest request) {
 		try {
@@ -120,7 +120,6 @@ public class PhotoController {
 		return "redirect:/index";
 	}
 
-
 	@RequestMapping(value = "/addPhotoLike", method = RequestMethod.GET, produces = "application/text")
 	public @ResponseBody String like(@RequestParam("id") String id, HttpServletRequest request)
 	{
@@ -131,21 +130,21 @@ public class PhotoController {
 		return String.valueOf(likes);
 	}
 
-//	@RequestMapping(value = "/photo", method = RequestMethod.GET)
-//	public String getPost(Model model, @RequestParam("photoId") String photoId, HttpServletRequest request)
-//	{
-//		HttpSession session = request.getSession();
-//		UserAccount user = (UserAccount) session.getAttribute("user");
-//		Photo photo = photoDao.getPhoto(user, Integer.parseInt(photoId));
-//		
-//		ArrayList<Notification> notificationList = notificationDao.getUnseenNotifications(user);
-//		session.setAttribute("notificationCount", String.valueOf(notificationList.size()));
-//		session.setAttribute("notificationList", notificationList);
-//
-//		model.addAttribute("photo", photo);
-//
-//		return "photo";
-//	}
+	@RequestMapping(value = "/photobyid", method = RequestMethod.GET)
+	public String getPhotoById(Model model, @RequestParam("photoId") String photoId, HttpServletRequest request)
+	{
+		HttpSession session = request.getSession();
+		UserAccount user = (UserAccount) session.getAttribute("user");
+		Photo photo = photoDao.getPhoto(user, Integer.parseInt(photoId));
+		
+		ArrayList<Notification> notificationList = notificationDao.getUnseenNotifications(user);
+		session.setAttribute("notificationCount", String.valueOf(notificationList.size()));
+		session.setAttribute("notificationList", notificationList);
+
+		model.addAttribute("photo", photo);
+
+		return "photo";
+	}
 	
 	@RequestMapping(value = "/photo", method = RequestMethod.GET)
 	public String getPost(Model model, @RequestParam("picPath") String picPath, HttpServletRequest request)

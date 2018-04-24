@@ -31,20 +31,20 @@ public class PostsDao extends DAO {
 	public ArrayList<Posts> getFriendPosts(UserAccount user, ArrayList<Integer> friendList)
 	{
 		friendList.add(user.getuId());
-		Query query = getSession().createQuery("from Posts where personid in (:personid) order by dateofpost desc").setMaxResults(2);
+		Query query = getSession().createQuery("from Posts where personid in (:personid) order by dateofpost desc").setMaxResults(200);
 		query.setParameterList("personid", friendList);
 		@SuppressWarnings("unchecked")
 		ArrayList<Posts> postList = (ArrayList<Posts>) query.list();
-		counter = 2;
+		counter = 200;
 		friends = friendList;
 		return postList;
 	}
 	
 	public String getInfinitePosts(UserAccount user)
 	{
-		Query query = getSession().createQuery("from Posts where personid in (:personid) order by dateofpost desc").setFirstResult(counter).setMaxResults(2);
+		Query query = getSession().createQuery("from Posts where personid in (:personid) order by dateofpost desc").setFirstResult(counter).setMaxResults(200);
 		query.setParameterList("personid", friends);
-		counter += 2;
+		counter += 200;
 		StringBuilder html = new StringBuilder();
 		StringBuilder comments;
 		

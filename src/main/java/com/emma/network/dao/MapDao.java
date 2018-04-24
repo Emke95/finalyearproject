@@ -83,7 +83,7 @@ public class MapDao extends DAO {
 				"\r\n" + 
 				"            <body>\r\n" + 
 				"                <section id=\"container\">\r\n" +
-				"<a href=\"/TravelBug/index\" class=\"logo\"><b><font color=\"FF00CC\">TW</font></b></a>"+
+				"<a href=\"/TravelBug/index\" class=\"logo\"><b><font color=\"125688\">Tb</font></b></a>"+
 				"                    <input id=\"pac-input\" class=\"controls\" type=\"text\" placeholder=\"Search Box\">\r\n" + 
 				"                    <div id=\"map\">\r\n" + 
 				"                        <script>\r\n" + 

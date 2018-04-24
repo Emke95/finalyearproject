@@ -200,9 +200,9 @@ public class PhotoDao extends DAO {
 
 	public String getInfinitePhotos(UserAccount user)
 	{
-		Query query = getSession().createQuery("from Photo where personid in (:personid) order by uploaddate desc").setFirstResult(counter).setMaxResults(2);
+		Query query = getSession().createQuery("from Photo where personid in (:personid) order by uploaddate desc").setFirstResult(counter).setMaxResults(200);
 		query.setParameterList("personid", friends);
-		counter += 2;
+		counter += 200;
 		StringBuilder html = new StringBuilder();
 		StringBuilder comments;
 

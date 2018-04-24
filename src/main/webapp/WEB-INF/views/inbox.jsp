@@ -36,11 +36,6 @@
 </head>
 
 <body>
-	<%
-		//   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
-		//   response.addHeader("Pragma", "no-cache"); 
-		//   response.addDateHeader ("Expires", 0);
-	%>
 	<section id="container">
 		<!-- TOP BAR CONTENT & NOTIFICATIONS -->
 		<!--header start-->
@@ -50,7 +45,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -188,9 +185,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a class="active" href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -222,28 +219,14 @@
 								</c:forEach>
 							</c:if>
 							<c:if test="${sessionScope.personCount == 0}">
-							<div class="form-panel">
-							<h3>Empty Inbox!</h3>
-							</div>
+								<div class="form-panel">
+									<h4>Empty Inbox!</h4>
+								</div>
 							</c:if>
-							
-							<!-- form-panel -->
+
 						</div>
-						<!-- /row -->
 					</div>
-					<!-- /col-lg-9 END SECTION MIDDLE -->
-
-
-					<!--  RIGHT SIDEBAR CONTENT -->
-
-					<div class="col-lg-3 ds">
-						<!--COMPLETED ACTIONS DONUTS CHART-->
-
-
-					</div>
-					<!-- /col-lg-3 -->
 				</div>
-				<! --/row -->
 			</section>
 		</section>
 

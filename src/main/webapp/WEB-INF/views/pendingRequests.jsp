@@ -36,13 +36,7 @@
 </head>
 
 <body>
-	<%
-		//   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
-		//   response.addHeader("Pragma", "no-cache"); 
-		//   response.addDateHeader ("Expires", 0);
-	%>
 	<section id="container">
-		<!-- TOP BAR CONTENT & NOTIFICATIONS  -->
 		<!--header start-->
 		<header class="header black-bg">
 			<div class="sidebar-toggle-box">
@@ -50,7 +44,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -187,18 +183,16 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
 				<!-- sidebar menu end-->
 			</div>
 		</aside>
-		<!--sidebar end-->
-		<!-- MAIN CONTENT -->
-		<!--main content start-->
+
 		<section id="main-content">
 			<section class="wrapper site-min-height">
 				<div class="row">
@@ -227,37 +221,21 @@
 							</div>
 						</c:forEach>
 
-						<!--<div class="row mtpost">
-                    <div class="form-panel">
-                      <h4>Keep Calm and Share On....</h4>
-                      <form class="form-horizontal tasi-form" role="form">
-                          <div class="form-group">
-                              <textarea class="form-control form-post" id="status" placeholder="Interest your buddies"></textarea>
-                          </div>
-                          <button type="submit" class="btn btn-theme">Spread it!</button>
-                      </form>
-                    </div>
-                  </div>-->
+						<c:if test="${sessionScope.pendingCount == 0}">
+							<div class="form-panel">
+								<h4>
+									No request pending, discover others on the 
+									<a href="map"> <i
+										class="fa fa-globe"></i> <span>map</span>
+									</a>
+								</h4>
+							</div>
+						</c:if>
+						<!-- /col-lg-3 -->
 					</div>
-					<!-- RIGHT SIDEBAR CONTENT -->
-
-					<div class="col-lg-3 ds">
-						<!--COMPLETED ACTIONS DONUTS CHART-->
-
-
-
-					</div>
-					<!-- /col-lg-3 -->
-				</div>
-				<! --/row -->
-
-				<!--main content end-->
 			</section>
 		</section>
-		<! --/wrapper -->
 	</section>
-	<!-- /MAIN CONTENT -->
-
 	<!--main content end-->
 	<!--footer start-->
 	<footer class="site-footer">

@@ -39,7 +39,9 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="/TravelBug/index" class="logo"><b>TW</b></a>
+			<a href="/TravelBug/index" class="logo"><b>TB</b><img
+				onerror="this.src='resources/assets/img/travelbug.png';"
+				src='resources/assets/img/travelbug.png' width="55" /></a>
 			<!--logo end-->
 			<div class="nav notify-row" id="top_menu">
 				<!--  notification start -->
@@ -109,7 +111,7 @@
 							<form class="form-inline" role="form">
 								<div class="form-group">
 									<input type="text" style="width: 500px;" class="form-control"
-										id="search" placeholder="Search Everyone">
+										id="search" placeholder="Search">
 								</div>
 								<button type="submit" class="btn btn-theme">Search</button>
 							</form>
@@ -176,9 +178,9 @@
 					</ul>
 					</li>
 					<li class="sub-menu"><a href="inbox"> <i
-							class="fa fa-calendar"></i> <span>Inbox</span>
+							class="fa fa-comments-o"></i> <span>Inbox</span>
 					</a></li>
-					<li class="sub-menu"><a href="map"> <i class="fa fa-plane"></i>
+					<li class="sub-menu"><a href="map"> <i class="fa fa-globe"></i>
 							<span>map</span>
 					</a></li>
 				</ul>
@@ -194,29 +196,41 @@
 				<div class="row">
 					<div id="searchArea" class="col-lg-9">
 
-						<c:forEach var="person" items="${personList}">
-							<div class="row mtpost">
-								<div class="form-panel">
-									<form:form method="POST" action="unFriend">
-										<a href="profile?personId=${person.getpId()}">
-											<h3>
-												<i class="fa fa-angle-right"></i> <img
-													onerror="this.src='resources/assets/img/default.png';"
-													src="${person.getProfilePicPath()}" width=150 height=150
-													class="img-circle" /> ${person.getFirstName()}
-												${person.getLastName()}
-										</a>
-										<button type="submit" class="pull-right btn btn-danger btn-sm">UnFriend</button>
-										<input type="hidden" name="personId"
-											value="${person.getpId()}" />
-										<a href="getMessage?personId=${person.getpId()}"
-											class="pull-right btn btn-warning btn-sm">Send Message</a>
-										</h3>
-									</form:form>
+						<c:if test="${sessionScope.friendsCount > 0}">
+							<c:forEach var="person" items="${personList}">
+								<div class="row mtpost">
+									<div class="form-panel">
+										<form:form method="POST" action="unFriend">
+											<a href="profile?personId=${person.getpId()}">
+												<h3>
+													<i class="fa fa-angle-right"></i> <img
+														onerror="this.src='resources/assets/img/default.png';"
+														src="${person.getProfilePicPath()}" width=150 height=150
+														class="img-circle" /> ${person.getFirstName()}
+													${person.getLastName()}
+											</a>
+											<button type="submit"
+												class="pull-right btn btn-danger btn-sm">UnFriend</button>
+											<input type="hidden" name="personId"
+												value="${person.getpId()}" />
+											<a href="getMessage?personId=${person.getpId()}"
+												class="pull-right btn btn-warning btn-sm">Send Message</a>
+											</h3>
+										</form:form>
 
+									</div>
 								</div>
+							</c:forEach>
+						</c:if>
+						<c:if test="${sessionScope.friendsCount == 0}">
+							<div class="form-panel">
+								<h4> Discover others on the 
+								<a href="map"> <i class="fa fa-globe"></i> <span>map</span>
+									</a>
+								</h4>
 							</div>
-						</c:forEach>
+						</c:if>
+
 					</div>
 					<!--RIGHT SIDEBAR CONTENT-->
 
