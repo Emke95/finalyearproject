@@ -160,4 +160,5 @@ public class FriendsDao extends DAO {
 		
 		return true;
 	}
+	
 }

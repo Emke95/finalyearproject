@@ -144,7 +144,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"><img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}

@@ -150,7 +150,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"><img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}
@@ -212,7 +212,7 @@
 						<h3>
 							<a href="profile?personId=${person.getpId()}"> <img
 								class="img-circle"
-								onerror="this.src='resources/assets/img/default.png';"
+								onerror="this.src='resources/assets/img/profile/default.png';"
 								style="width: 30px; height: 30px;"
 								src="${person.getProfilePicPath()}">${person.getFirstName()}
 								${person.getLastName()}
@@ -222,34 +222,37 @@
 						<div id="chatArea" style="overflow: scroll; height: 350px;"
 							class="row mtpost">
 							<c:forEach var="message" items="${messages}">
-								<c:if test="${message.getFromUser().getpId() != sessionScope.user.getuId()}">
+								<c:if
+									test="${message.getFromUser().getpId() != sessionScope.user.getuId()}">
 									<div class="message form-panel pull-left">
-										<a href="profile?personId=${person.getpId()}">
-										<img onerror="this.src='resources/assets/img/default.png';"
+										<a href="profile?personId=${person.getpId()}"> <img
+											onerror="this.src='resources/assets/img/profile/default.png';"
 											src="${message.getFromUser().getProfilePicPath()}" width=20px
 											class="img-circle pull-left" />
-										<h6>
-											&nbsp; ${message.getFromUser().getFirstName()}
-											${message.getFromUser().getLastName()}</a>&nbsp;
-											<fmt:formatDate value="${message.getDateOfMessage()}"
-												pattern="dd/MM/yy HH:mm" />
+											<h6>&nbsp; ${message.getFromUser().getFirstName()}
+												${message.getFromUser().getLastName()}</a>&nbsp;
+										<fmt:formatDate value="${message.getDateOfMessage()}"
+											pattern="dd/MM/yy HH:mm" />
 										</h6>
 										<p>${message.getMessage()}</p>
+
 									</div>
 									<!-- form-panel -->
 								</c:if>
-								<c:if test="${message.getFromUser().getpId() == sessionScope.user.getuId()}">
+								<c:if
+									test="${message.getFromUser().getpId() == sessionScope.user.getuId()}">
 									<div style="background-color: #68dff0;"
 										class="message form-panel pull-right">
 										<a href="profile?personId=${message.getFromUser().getpId()}">
-										<img onerror="this.src='resources/assets/img/default.png';"
-											src="${message.getFromUser().getProfilePicPath() }" width=20px
-											class="img-circle pull-left" />
-										<h6>
-											&nbsp; ${message.getFromUser().getFirstName()}
-											${message.getFromUser().getLastName()} </a>&nbsp;
-											<fmt:formatDate value="${message.getDateOfMessage()}"
-												pattern="dd/MM/yy HH:mm" />
+											<img
+											onerror="this.src='resources/assets/img/profile/default.png';"
+											src="${message.getFromUser().getProfilePicPath() }"
+											width=20px class="img-circle pull-left" />
+											<h6>&nbsp; ${message.getFromUser().getFirstName()}
+												${message.getFromUser().getLastName()}
+										</a>&nbsp;
+										<fmt:formatDate value="${message.getDateOfMessage()}"
+											pattern="dd/MM/yy HH:mm" />
 										</h6>
 										<p>${message.getMessage()}</p>
 									</div>
@@ -258,6 +261,7 @@
 							</c:forEach>
 						</div>
 						<!-- /row -->
+						<c:if test="${checkIfFriend}">
 						<div class="form-group">
 							<textarea type="text" autocomplete="off"
 								class="form-control form-post" id="message"
@@ -265,6 +269,7 @@
 							<input type="hidden" id="personId" value="${person.getpId()}" />
 						</div>
 						<button type="submit" id="send" class="btn btn-theme">Send</button>
+				</c:if>
 					</div>
 					<div class="col-lg-3 ds"></div>
 				</div>

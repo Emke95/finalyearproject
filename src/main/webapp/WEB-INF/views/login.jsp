@@ -116,12 +116,12 @@
 								<span id="validEmail" class="validEmail"></span>
 							</p>
 							<p>
-								<input type="date" name="dob" placeholder="Date of Birth"
+								<input type="date" required name="dob" placeholder="Date of Birth"
 									autocomplete="off" class="form-control placeholder-no-fix">
 							</p>
 							
 							<p>
-								<input type="radio" name="gender" id="gender" value="Male"
+								<input type="radio" required name="gender" id="gender" value="Male"
 									class="radio-inline"> Male</input> <input type="radio"
 									name="gender" id="gender" value="Female" class="radio-inline">
 								Female</input>

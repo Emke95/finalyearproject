@@ -24,7 +24,7 @@ public class Posts {
 	@Column(name = "PostId")
 	private int postId;
 
-	@Column(name = "Status")
+	@Column(name = "Status", nullable=false)
 	private String status;
 
 	@Column(name = "Likes")

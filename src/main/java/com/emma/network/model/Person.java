@@ -33,14 +33,13 @@ public class Person {
 	@Column(name = "LastName", nullable=false)
 	private String lastName;
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "DateOfBirth", nullable=false)
 	private Date dob;
 	
-	@Column(name = "Gender")
+	@Column(name = "Gender",nullable=false)
 	private String gender;
 	
-	@Column(name = "Email")
+	@Column(name = "Email",nullable=false)
 	@Email
 	private String email;
 	

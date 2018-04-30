@@ -22,7 +22,7 @@ public class TestMain {
 		josh.setLastName("Kerry");
 		josh.setGender("Male");
 		josh.setEmail("josh@gmail.com");
-		josh.setDob(new Date(1990-10-04));
+		josh.setDob(new Date(10-04-1990));
 
 		// create user account
 		UserAccount userJosh = new UserAccount();

@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-
 @Component
 public class FileValidator implements Validator {
 
@@ -19,6 +18,5 @@ public class FileValidator implements Validator {
 		// TODO Auto-generated method stub
 		
 	}
-
 	
 }

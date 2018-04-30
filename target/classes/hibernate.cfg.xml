@@ -23,8 +23,7 @@
 		<mapping class="com.emma.network.model.Notification" />
 		<mapping class="com.emma.network.model.Friends" />
 		<mapping class="com.emma.network.model.Photo" />
-	
-	</session-factory>
 
+	</session-factory>
 
 </hibernate-configuration>

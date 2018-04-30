@@ -139,7 +139,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"><img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}
@@ -204,7 +204,7 @@
 											<a href="profile?personId=${person.getpId()}">
 												<h3>
 													<i class="fa fa-angle-right"></i> <img
-														onerror="this.src='resources/assets/img/default.png';"
+														onerror="this.src='resources/assets/img/profile/default.png';"
 														src="${person.getProfilePicPath()}" width=150 height=150
 														class="img-circle" /> ${person.getFirstName()}
 													${person.getLastName()}

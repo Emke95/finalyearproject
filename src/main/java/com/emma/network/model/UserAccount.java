@@ -1,4 +1,3 @@
-
 package com.emma.network.model;
 
 import javax.persistence.CascadeType;
@@ -9,9 +8,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -25,10 +24,12 @@ public class UserAccount {
 	public enum Role {
 		USER, ADMIN
 	}
+	
 	@Id	@GeneratedValue(generator="newGenerator")
 	@GenericGenerator(name="newGenerator", strategy="foreign",parameters = { @Parameter(value= "person", name="property")})
 	@Column(name="PersonId")
 	private int uId;
+	
 	
 	@NotEmpty(message="Username cannot be null")
 	@Size(min=5, max=15, message="Username must be 5-15 characters.")

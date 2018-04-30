@@ -61,10 +61,16 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 		HttpSession session = request.getSession();
 		UserAccount user = (UserAccount) session.getAttribute("user");
 		ArrayList<Inbox> messages = inboxDao.getPersonMessages(user, personId);
+		boolean checkIfFriend = friendDao.checkIfFriend(user, personId);
+		boolean checkIfNotFriend = friendDao.checkIfNotFriend(user, personId);
+		
 		Person person = userDao.getPersonByIds(personId);
 		inboxDao.markAsRead(user);
 		model.addAttribute("messages", messages);
 		model.addAttribute("person", person);
+		model.addAttribute("checkIfNotFriend", checkIfNotFriend);
+		model.addAttribute("checkIfFriend", checkIfFriend);
+		
 		return "messages";
 	}
 	
@@ -72,9 +78,10 @@ private static final Logger logger = LoggerFactory.getLogger(LoginController.cla
 	public @ResponseBody String sendMessage(@RequestParam("message") String message, @RequestParam("personId") String personId, HttpServletRequest request)
 	{
 		HttpSession session = request.getSession();
-		UserAccount user = (UserAccount) session.getAttribute("user");
+		UserAccount user = (UserAccount) session.getAttribute("user");	
 		Person person = userDao.getPersonByIds(Integer.parseInt(personId));
 		String html = inboxDao.sendMessage(user, person, message);
+	
 		return html;
 	}
 	

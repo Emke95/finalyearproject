@@ -1,7 +1,5 @@
 package com.emma.network.controller;
 
-import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,28 +46,7 @@ public class IndexController {
 	{
 		return "map";
 	}
-	
 
-	@RequestMapping(value = "/profile", method = RequestMethod.GET)
-	public String openProfile(@RequestParam("personId") int personId, Model model, HttpServletRequest request)
-	{
-		HttpSession session = request.getSession();
-		UserAccount user = (UserAccount) session.getAttribute("user");
-		boolean checkIfFriend = friendDao.checkIfFriend(user, personId);
-		boolean checkIfNotFriend = friendDao.checkIfNotFriend(user, personId);
-		Person person = userDao.getPersonByIds(personId);
-		
-		ArrayList<Posts> postList = postDao.getMyPosts(personId);
-		ArrayList<Photo> photoList = photoDao.getMyPhotos(personId);
-		
-		model.addAttribute("posts", postList);
-		model.addAttribute("photos", photoList);
-		model.addAttribute("person", person);		
-		model.addAttribute("checkIfNotFriend", checkIfNotFriend);
-		model.addAttribute("checkIfFriend", checkIfFriend);
-		return "profile";
-	}
-	
 	@RequestMapping(value = "/infinite", method = RequestMethod.GET, produces = "application/text")
 	public @ResponseBody String getInfiniteContent(HttpServletRequest request)
 	{

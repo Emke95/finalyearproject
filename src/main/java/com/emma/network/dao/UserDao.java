@@ -15,7 +15,6 @@ import com.emma.network.model.UserAccount;
 
 public class UserDao extends DAO {
 
-
 	public UserAccount loadUserByUserName(String username)
 	{
 		UserAccount user = null;
@@ -51,6 +50,10 @@ public class UserDao extends DAO {
 		}
 	}
 
+	public void checkIfUsernameUnique(String username)
+	{
+		
+	}
 
 	public void registerNewUsers(UserAccount user)
 	{
@@ -155,8 +158,9 @@ public class UserDao extends DAO {
 				}
 				else if( (p.getpId() == f.getFromUser()) && !f.isAccepted())
 				{
-					action = "acceptRequest";
+					action = "unFriend";
 					btnFriend = "<button type='submit' class='pull-right btn btn-primary btn-sm'>Accept</button></form>";
+					
 					decline = "<form method='POST' class='pull-right' action='unFriend'>" +
 							"<button type='submit' name='submitDecline' class='pull-right btn btn-danger btn-sm'>Decline</button></h3>" +
 							"<input type='hidden' name='personId' value='" + p.getpId() + "' />" +

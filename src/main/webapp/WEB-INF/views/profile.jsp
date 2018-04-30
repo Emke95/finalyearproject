@@ -27,7 +27,6 @@
 <link href="resources/assets/css/style-responsive.css" rel="stylesheet">
 <script src="resources/assets/js/custom/search.js"></script>
 <script src="resources/assets/js/custom/switch.js"></script>
-
 <script src="resources/assets/js/custom/likes.js"></script>
 <script src="resources/assets/js/custom/comments.js"></script>
 <script src="resources/assets/js/custom/unlikes.js"></script>
@@ -155,7 +154,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"><img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}
@@ -220,7 +219,7 @@
 										<div class="photo-wrapper">
 											<div class="photo">
 												<a class="fancybox" href="${person.getProfilePicPath()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
+													onerror="this.src='resources/assets/img/profile/default.png';"
 													class="img-responsive" alt="Profile Pic"
 													src="${person.getProfilePicPath()}"></a>
 											</div>
@@ -272,7 +271,7 @@
 											</h3>
 										</form>
 									</c:if>
-
+								
 									<c:if
 										test="${checkIfFriend || sessionScope.user.getuId() == person.getpId()}">
 
@@ -343,14 +342,11 @@
 													class="radio-inline"> Female</input>
 											</p>
 										</c:if>
-
 									</div>
 								</form:form>
 							</div>
 
 						</div>
-
-
 
 						<c:if
 							test="${checkIfFriend && sessionScope.user.getuId() != person.getpId()}">
@@ -380,25 +376,13 @@
 						</c:if>
 
 						<c:if
-							test="${sessionScope.postCount == 0 && sessionScope.photoCount == 0}">
-							<div class="row mtpost">
-								<div class="form-panel">
-									<h5>
-										No posts yet! Start exploring on the <a href="map"> <i
-											class="fa fa-globe"></i> <span>map</span>
-										</a>
-									</h5>
-								</div>
-							</div>
-						</c:if>
-
-						<c:if
 							test="${checkIfFriend || sessionScope.user.getuId() == person.getpId()}">
 							<c:forEach var="photo" items="${photos}">
 								<div class="row mtpost">
 									<div class="form-panel">
 										<a href="profile?personId=${photo.getPerson().getpId()}">
-											<img onerror="this.src='resources/assets/img/default.png';"
+											<img
+											onerror="this.src='resources/assets/img/profile/default.png';"
 											src="${photo.getPerson().getProfilePicPath()}" width=40px
 											class="img-circle pull-left" />
 											<h4>
@@ -412,9 +396,11 @@
 										<h4>${photo.getCaption()}</h4>
 										<div class="row mtpost"></div>
 										<div class="pic-box">
-											<img class="img-edges pull-center"
-												onerror="this.src='resources/assets/img/default.png';"
-												src="${photo.getPicPath()}" width=400px />
+											<a href="photo?picPath=${photo.getPicPath()}"> <img
+												class="img-edges pull-center"
+												onerror="this.src='resources/assets/img/profile/default.png';"
+												src="${photo.getPicPath()}" width=393px />
+											</a>
 										</div>
 										<p>
 											<button class="submitLink addPhotoLike">
@@ -429,7 +415,7 @@
 										<div class="postEnd commentSection">
 											<c:forEach var="comment" items="${photo.getComments()}">
 												<a href="profile?personId=${comment.getPerson().getpId()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
+													onerror="this.src='resources/assets/img/profile/default.png';"
 													src="${comment.getPerson().getProfilePicPath()}" width=20px
 													class="img-circle pull-left" />
 													<h5>&nbsp; ${comment.getPerson().getFirstName()}
@@ -455,7 +441,7 @@
 								<div class="row mtpost">
 									<div class="form-panel">
 										<a href="profile?personId=${post.getPerson().getpId()}"> <img
-											onerror="this.src='resources/assets/img/default.png';"
+											onerror="this.src='resources/assets/img/profile/default.png';"
 											src="${post.getPerson().getProfilePicPath()}" width=40px
 											class="img-circle pull-left" />
 											<h4>
@@ -481,7 +467,7 @@
 										<div class="postEnd commentSection">
 											<c:forEach var="comment" items="${post.getComments()}">
 												<a href="profile?personId=${comment.getPerson().getpId()}"><img
-													onerror="this.src='resources/assets/img/default.png';"
+													onerror="this.src='resources/assets/img/profile/default.png';"
 													src="${comment.getPerson().getProfilePicPath()}" width=20px
 													class="img-circle pull-left" />
 													<h5>&nbsp; ${comment.getPerson().getFirstName()}

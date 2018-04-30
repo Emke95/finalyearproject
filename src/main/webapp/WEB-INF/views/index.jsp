@@ -86,16 +86,22 @@
 							</li>
 							<c:forEach var="notification"
 								items="${sessionScope.notificationList}">
-								<li><a
-									href="post?postId=${notification.getPosts().getPostId()}">
+								<c:if test = "${notification.getPosts().getPostId() > 0}">
+								<li><a href="post?postId=${notification.getPosts().getPostId()}">
 										<div class="task-info">
 											<div class="desc">${notification.getNotification()}</div>
 										</div>
-								</a> <a href="photo?picPath=${notification.getPhoto().getPicPath()}">
+								</a> 
+								</li>
+								</c:if>
+								<c:if test = "${notification.getPhoto().getPhotoId() > 0}">
+								
+								<li><a href="photo?picPath=${notification.getPhoto().getPicPath()}">
 										<div class="task-info">
-											<div class="desc">${notification.getNotification()}</div>
+											<div chlass="desc">${notification.getNotification()}</div>
 										</div>
 								</a></li>
+								</c:if>
 							</c:forEach>
 						</ul></li>
 					<!-- settings end -->
@@ -160,7 +166,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"> <img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}
@@ -230,14 +236,11 @@
 							</div>
 						</div>
 
-						
-
-
 						<c:forEach var="photo" items="${photos}">
 							<div class="row mtpost">
 								<div class="form-panel">
 									<a href="profile?personId=${photo.getPerson().getpId()}"> <img
-										onerror="this.src='resources/assets/img/default.png';"
+										onerror="this.src='resources/assets/img/profile/default.png';"
 										src="${photo.getPerson().getProfilePicPath()}" width=40px
 										class="img-circle pull-left" />
 										<h4>
@@ -252,7 +255,7 @@
 									<div class="pic-box">
 										<a href="photo?picPath=${photo.getPicPath()}"> <img
 											class="img-edges pull-center"
-											onerror="this.src='resources/assets/img/default.png';"
+											onerror="this.src='resources/assets/img/profile/default.png';"
 											src="${photo.getPicPath()}" width=393px />
 										</a>
 									</div>
@@ -269,7 +272,7 @@
 									<div class="postEnd commentSection">
 										<c:forEach var="comment" items="${photo.getComments()}">
 											<a href="profile?personId=${comment.getPerson().getpId()}"><img
-												onerror="this.src='resources/assets/img/default.png';"
+												onerror="this.src='resources/assets/img/profile/default.png';"
 												src="${comment.getPerson().getProfilePicPath()}" width=20px
 												class="img-circle pull-left" />
 												<h5>&nbsp; ${comment.getPerson().getFirstName()}
@@ -357,7 +360,7 @@
 										<form:form class="form-horizontal tasi-form"
 											commandName="posts" method="POST" action="addPosts">
 											<div class="form-group">
-												<textarea class="form-control form-post" name="status"
+												<textarea class="form-control form-post" required name="status"
 													id="status" placeholder="Write a status"></textarea>
 											</div>
 									</div>
@@ -385,7 +388,7 @@
 												<textarea class="form-control form-post" name="caption"
 													id="caption" placeholder="Write a caption"></textarea>
 
-												<input type="file" id="read" name="pic" />
+												<input required type="file" id="read" name="pic" />
 											</div>
 									</div>
 

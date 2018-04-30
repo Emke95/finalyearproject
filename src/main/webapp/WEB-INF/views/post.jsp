@@ -144,7 +144,7 @@
 
 					<p class="centered">
 						<a href="profile?personId=${sessionScope.user.getuId()}"><img
-							onerror="this.src='resources/assets/img/default.png';"
+							onerror="this.src='resources/assets/img/profile/default.png';"
 							src="${sessionScope.user.getPerson().getProfilePicPath()}"
 							class="img-circle" width="60" />
 							<h5 class="centered">${sessionScope.user.getPerson().getFirstName()}
@@ -205,7 +205,7 @@
 							<div class="row mtpost">
 								<div class="form-panel">
 									<a href="profile?personId=${post.getPerson().getpId()}"> <img
-										onerror="this.src='resources/assets/img/default.png';"
+										onerror="this.src='resources/assets/img/profile/default.png';"
 										src="${post.getPerson().getProfilePicPath()}" width=40px
 										class="img-circle pull-left" />
 										<h4>
@@ -231,7 +231,7 @@
 									<div class="postEnd commentSection">
 										<c:forEach var="comment" items="${post.getComments()}">
 											<a href="profile?personId=${comment.getPerson().getpId()}"><img
-												onerror="this.src='resources/assets/img/default.png';"
+												onerror="this.src='resources/assets/img/profile/default.png';"
 												src="${comment.getPerson().getProfilePicPath()}" width=20px
 												class="img-circle pull-left" />
 												<h5>&nbsp; ${comment.getPerson().getFirstName()}
